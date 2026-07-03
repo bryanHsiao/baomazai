@@ -18,9 +18,18 @@ venv/
 # Node (Tier 1 後端若用 Node)
 node_modules/
 
-# 情報個資：不上傳公開 repo，只留本機（含真實姓名/頭像的 LINE 截圖與逐字紀錄）
+# 情報：逐字檔（含姓名/暱稱）永不上傳；截圖預設不上傳，
+# 僅「已去敏、逐張目視確認」的截圖用下方 ! 例外放行公開。
+docs/data/*/intel/intel.md
 docs/data/*/intel/*.jpg
 docs/data/*/intel/*.jpeg
 docs/data/*/intel/*.png
 docs/data/*/intel/*.gif
-docs/data/*/intel/intel.md
+# 已去敏、確認可公開的情報截圖（例外放行）
+!docs/data/1449/intel/LINE_20260703_173105.jpg
+!docs/data/1449/intel/LINE_20260703_173128.jpg
+!docs/data/1718/intel/S__156647460.jpg
+!docs/data/6226/intel/S__156647459.jpg
+!docs/data/3029/intel/tip-2026-06-01.png
+!docs/data/3147/intel/tip-2026-06-01.png
+!docs/data/6112/intel/tip-2026-06-01.png
