@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Python (Tier 1 後端若用 Python)
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Node (Tier 1 後端若用 Node)
+node_modules/
+
+# 情報個資：不上傳公開 repo，只留本機（含真實姓名/頭像的 LINE 截圖與逐字紀錄）
+docs/data/*/intel/*.jpg
+docs/data/*/intel/*.jpeg
+docs/data/*/intel/*.png
+docs/data/*/intel/*.gif
+docs/data/*/intel/intel.md

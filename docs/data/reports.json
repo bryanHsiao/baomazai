@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1718",
+    "ticker": "1718",
+    "name": "中國人造纖維",
+    "short": "中纖",
+    "sector": "化學工業",
+    "verdict": "中性偏保守",
+    "verdictTone": "neu",
+    "tagline": "有真實資產撐腰（土地合建＋台中銀股權，PBR<1），但漲停價已反映主要題材、缺乏安全邊際。",
+    "price": "14.95",
+    "priceMove": "up",
+    "priceNote": "漲停 +9.9%",
+    "stats": [
+      { "k": "股價", "v": "14.95" },
+      { "k": "PBR", "v": "0.89" },
+      { "k": "殖利率", "v": "0%" },
+      { "k": "風險", "v": "中高" }
+    ],
+    "file": "data/1718/report.md",
+    "date": "2026-07-03",
+    "quote": { "price": 14.95, "asOf": "2026-07-03", "prevClose": 13.60 }
+  },
+  {
+    "id": "6226",
+    "ticker": "6226",
+    "name": "光鼎電子",
+    "short": "光鼎",
+    "sector": "電子／光電",
+    "verdict": "不建議 / 避開",
+    "verdictTone": "neg",
+    "tagline": "長期虧損 LED 廠、非生技（那是 6850）；股價翻倍並列處置股，與基本面嚴重背離、PBR 逾 2 倍偏貴。",
+    "price": "24.00",
+    "priceMove": "up",
+    "priceNote": "處置股 6/30–7/13",
+    "stats": [
+      { "k": "股價", "v": "≈24" },
+      { "k": "PBR", "v": "2.3" },
+      { "k": "本益比", "v": "虧損" },
+      { "k": "風險", "v": "極高" }
+    ],
+    "file": "data/6226/report.md",
+    "date": "2026-07-03",
+    "quote": { "price": 24.00, "asOf": "2026-07-03", "prevClose": 26.65 }
+  },
+  {
+    "id": "1449",
+    "ticker": "1449",
+    "name": "佳和實業",
+    "short": "佳和",
+    "sector": "紡織纖維",
+    "verdict": "觀望 / 不追價",
+    "verdictTone": "neu",
+    "tagline": "特斯拉／航太題材非全然虛構，但市場敘事跑在財務前面；2025 核心紡織大虧、淨負債高於市值，14.90 元缺乏安全邊際。",
+    "price": "14.90",
+    "priceMove": "up",
+    "priceNote": "漲停收盤",
+    "stats": [
+      { "k": "股價", "v": "14.90" },
+      { "k": "PBR", "v": "0.82" },
+      { "k": "殖利率", "v": "0%" },
+      { "k": "風險", "v": "高" }
+    ],
+    "file": "data/1449/report.md",
+    "date": "2026-06-08",
+    "quote": { "price": 14.55, "asOf": "2026-07-03", "prevClose": 14.30 },
+    "intel": {
+      "received": "2026-07-03",
+      "source": "LINE 群組（友人分享）",
+      "summary": "友人在 LINE 群組推薦佳和（1449）：紡織起家，稱已打進特斯拉／無人機／航太（該則訊息後被收回）；系出永光染料業務人脈推薦，建議長期持有，目標 18–22 元、看第四季。並附 winvest.tw 月營收截圖：2026/04 月營收 3.77 億，月增 34.69%、年增 75.49%。",
+      "note": "data/1449/intel/intel.md",
+      "images": [
+        { "src": "data/1449/intel/LINE_20260703_173105.jpg", "caption": "LINE 群組對話：打進特斯拉／無人機／航太（後收回）、紡織起家、永光染料業務推薦、建議長期持有、目標 18–22 元（第四季）" },
+        { "src": "data/1449/intel/LINE_20260703_173128.jpg", "caption": "winvest.tw 佳和月營收：2026/04 月營收 3.77 億，月增 34.69%、年增 75.49%，累計年增 35.36%" }
+      ]
+    },
+    "sources": [
+      { "label": "2025 年報", "file": "data/1449/sources/2025-annual-report.pdf" },
+      { "label": "2025 合併財務報告", "file": "data/1449/sources/2025-consolidated-financial-statements.pdf" },
+      { "label": "2026 第一季合併財務報告", "file": "data/1449/sources/2026-Q1-consolidated-financial-statements.pdf" },
+      { "label": "2025/10/21 法人說明會簡報", "file": "data/1449/sources/2025-10-21-investor-presentation.pdf" },
+      { "label": "研究筆記", "file": "data/1449/sources/research-notes.md" },
+      { "label": "研究規格（驗收條件）", "file": "data/1449/sources/research-spec.md" }
+    ]
+  }
+]

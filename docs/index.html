@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個股研究室 · 台股基本面研究</title>
+<meta name="description" content="台股個股基本面研究快報 — 以公開資訊觀測站、證交所資料為主的研究整理。僅供參考，不構成投資建議。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- utility bar -->
+  <div class="util">
+    <div class="util__row">
+      <span class="util__brand">個股研究室 · <b>RESEARCH&nbsp;DESK</b></span>
+      <span class="util__meta">
+        <span>基本面研究</span>
+        <span><span class="dot">●</span> 僅供參考 · 非投資建議</span>
+        <span id="today">—</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ticker tape -->
+  <div class="tape">
+    <div class="tape__track" id="tape"></div>
+  </div>
+
+  <main class="wrap">
+
+    <!-- masthead -->
+    <header class="masthead">
+      <div class="masthead__kick">個股情報 &nbsp;/&nbsp; Market Broadsheet</div>
+      <h1 class="masthead__title">
+        個股研究室
+        <span class="en">STOCK RESEARCH DESK</span>
+      </h1>
+      <div class="masthead__sub">
+        <span class="lead">把漲停題材放回財務事實裡檢驗。</span>
+        <span>以證交所 OpenAPI、公開資訊觀測站、法說資料為第一級來源；區分「已確認事實／市場推測／待確認」。</span>
+      </div>
+    </header>
+
+    <!-- research files -->
+    <div class="slabel">研究檔案 &nbsp;·&nbsp; <b>RESEARCH FILES</b></div>
+    <section class="files" id="files">
+      <!-- populated by app.js -->
+    </section>
+
+    <!-- disclaimer -->
+    <section class="ribbon">
+      <span class="ribbon__mark">免責聲明</span>
+      <p>
+        本站報告為公開資訊之整理與研究，定位為<strong>教育與參考用途</strong>，非個人化投資建議，亦不構成任何證券之買賣要約。
+        數字以標示之期間與來源為準，部分項目標註「待確認」，投資決策與風險請自行判斷與承擔。
+      </p>
+    </section>
+
+    <!-- footer -->
+    <footer class="foot">
+      <span>© 2026 個股研究室 · 基本面研究整理</span>
+      <span>資料來源：<a href="https://openapi.twse.com.tw" target="_blank" rel="noopener">證交所 OpenAPI</a> · <a href="https://mops.twse.com.tw" target="_blank" rel="noopener">公開資訊觀測站</a></span>
+    </footer>
+
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

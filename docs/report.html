@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究報告 · 個股研究室</title>
+<meta name="description" content="台股個股基本面研究報告。僅供參考，不構成投資建議。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- sticky report header -->
+  <header class="rhead">
+    <div class="rhead__row">
+      <a class="rhead__back" href="index.html"><span class="arrow">←</span> 研究檔案</a>
+      <span class="rhead__sep"></span>
+      <span class="rhead__id mono" id="r-id">—</span>
+      <span class="rhead__name" id="r-name"></span>
+      <span class="rhead__verdict" id="r-verdict"></span>
+    </div>
+    <div class="rhead__prog" id="prog"></div>
+  </header>
+
+  <div class="rlayout">
+    <article class="article">
+      <div class="report-body" id="report">
+        <p class="article__loading">載入報告中…</p>
+      </div>
+      <div class="rfoot">
+        本報告為公開資訊整理，僅供參考，不構成投資建議。&nbsp;·&nbsp; 個股研究室
+      </div>
+    </article>
+
+    <aside class="toc" id="toc" hidden>
+      <div class="toc__label">本篇章節</div>
+      <ul class="toc__list" id="toc-list"></ul>
+    </aside>
+  </div>
+
+  <!-- markdown renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
