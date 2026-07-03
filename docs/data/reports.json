@@ -100,5 +100,98 @@
       { "label": "研究筆記", "file": "data/1449/sources/research-notes.md" },
       { "label": "研究規格（驗收條件）", "file": "data/1449/sources/research-spec.md" }
     ]
+  },
+  {
+    "id": "3029",
+    "ticker": "3029",
+    "name": "零壹科技",
+    "short": "零壹",
+    "sector": "資訊服務／IT通路",
+    "verdict": "中性偏正向",
+    "verdictTone": "neu",
+    "tagline": "名為軟體、實為 IT 加值通路（代理 NVIDIA／資安），毛利僅約 12%；連 19 年配息、成長扎實，但 102.5 元已反映 AI 通路溢價。",
+    "price": "102.5",
+    "priceMove": "up",
+    "priceNote": "AI通路配息",
+    "stats": [
+      { "k": "股價", "v": "102.5" },
+      { "k": "本益比", "v": "15.7" },
+      { "k": "PBR", "v": "3.4" },
+      { "k": "殖利率", "v": "≈5%" }
+    ],
+    "file": "data/3029/report.md",
+    "date": "2026-07-03",
+    "quote": { "price": 102.5, "asOf": "2026-07-03", "prevClose": 102.0 },
+    "intel": {
+      "received": "2026-06-01",
+      "source": "LINE（友人分享）",
+      "summary": "友人於 2026/6/1 在 LINE 一次推薦三支「軟體股」（零壹3029、大綜3147、邁達特6112）供參考。查證後零壹其實是 IT 加值通路商（代理 NVIDIA／Cisco／資安），非軟體公司，毛利僅約 12%。",
+      "note": "data/3029/intel/intel.md",
+      "images": [
+        { "src": "data/3029/intel/tip-2026-06-01.jpg", "caption": "LINE 對話（2026/6/1）：友人推薦三支「軟體股」——零壹3029、大綜3147、邁達特6112" }
+      ]
+    }
+  },
+  {
+    "id": "3147",
+    "ticker": "3147",
+    "name": "大綜電腦系統",
+    "short": "大綜",
+    "sector": "系統整合（上櫃）",
+    "verdict": "中性偏審慎",
+    "verdictTone": "neu",
+    "tagline": "AI 伺服器／半導體硬體通路＋系統整合（非軟體），2026 營收爆發但案子型波動大；PBR 6.4、靜態 PER 28 倍，估值偏貴、安全邊際薄。",
+    "price": "236.0",
+    "priceMove": "down",
+    "priceNote": "AI伺服器SI",
+    "stats": [
+      { "k": "股價", "v": "236" },
+      { "k": "本益比", "v": "28" },
+      { "k": "PBR", "v": "6.4" },
+      { "k": "殖利率", "v": "≈2.8%" }
+    ],
+    "file": "data/3147/report.md",
+    "date": "2026-07-03",
+    "quote": { "price": 236.0, "asOf": "2026-07-03", "prevClose": 239.0 },
+    "intel": {
+      "received": "2026-06-01",
+      "source": "LINE（友人分享）",
+      "summary": "同一則 2026/6/1 明牌之一。查證後大綜（JETWELL）是 AI 伺服器硬體通路＋系統整合商，非軟體公司；硬體逾八成、半導體客戶約占五成，2026 營收爆發但案子型波動大。",
+      "note": "data/3147/intel/intel.md",
+      "images": [
+        { "src": "data/3147/intel/tip-2026-06-01.jpg", "caption": "LINE 對話（2026/6/1）：友人推薦三支「軟體股」——零壹3029、大綜3147、邁達特6112" }
+      ]
+    }
+  },
+  {
+    "id": "6112",
+    "ticker": "6112",
+    "name": "邁達特數位",
+    "short": "邁達特",
+    "sector": "資訊服務／系統整合",
+    "verdict": "中性",
+    "verdictTone": "neu",
+    "tagline": "佳世達集團旗下 IT 系統整合／雲端商（非軟體、非軟銀、前身聚碩非精技）；毛利僅 14%、獲利波動大（2024 EPS 崩到 0.6），PER 約 25 倍偏高、非便宜價。",
+    "price": "44.7",
+    "priceMove": "flat",
+    "priceNote": "佳世達集團",
+    "stats": [
+      { "k": "股價", "v": "44.7" },
+      { "k": "本益比", "v": "24.6" },
+      { "k": "PBR", "v": "2.1" },
+      { "k": "殖利率", "v": "≈3.7%" }
+    ],
+    "file": "data/6112/report.md",
+    "date": "2026-07-03",
+    "quote": { "price": 44.7, "asOf": "2026-07-03", "prevClose": 44.75 },
+    "intel": {
+      "received": "2026-06-01",
+      "source": "LINE（友人分享）",
+      "summary": "同一則 2026/6/1 明牌之一，口語稱其為「軟體／軟銀」相關。查證後邁達特是佳世達集團（持股約 51%）旗下 IT 系統整合／雲端商——非軟體、與軟銀無關、前身是聚碩科技（2022 更名，非精技電腦）。",
+      "note": "data/6112/intel/intel.md",
+      "images": [
+        { "src": "data/6112/intel/tip-2026-06-01.jpg", "caption": "LINE 對話（2026/6/1）：友人推薦三支「軟體股」——零壹3029、大綜3147、邁達特6112" }
+      ]
+    }
   }
 ]
