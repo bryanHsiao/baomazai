@@ -250,7 +250,7 @@
         '<span class="scorecard__asof">現價截至 ' + pf.asOf + ' 收盤</span>' +
       '</div>' +
       '<div class="scorecard__grid">' +
-        '<div class="sc-cell"><span class="sc-k">研究基準價</span>' +
+        '<div class="sc-cell"><span class="sc-k">基準價</span>' +
           '<span class="sc-v mono">' + pf.base.toFixed(2) + '</span>' +
           '<span class="sc-sub">' + meta.date + '</span></div>' +
         '<div class="sc-arrow">→</div>' +
