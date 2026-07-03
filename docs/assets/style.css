@@ -159,45 +159,61 @@ a { color: inherit; text-decoration: none; }
 .files { border-top: 1px solid var(--ink); }
 
 .file {
-  display: grid;
-  grid-template-columns: 74px 168px 1fr 200px;
-  gap: 28px; align-items: center;
-  padding: 30px 14px 30px 4px;
+  display: block; position: relative;
+  padding: 30px 8px 30px 6px;
   border-bottom: 1px solid var(--line);
-  position: relative;
   transition: background .35s var(--ease), padding-left .35s var(--ease);
   opacity: 0; transform: translateY(14px);
 }
 .file.in { opacity: 1; transform: none; transition: opacity .7s var(--ease), transform .7s var(--ease), background .35s var(--ease), padding-left .35s var(--ease); }
 .file::before {
-  content: ""; position: absolute; left: -4px; top: 0; bottom: -1px; width: 3px;
+  content: ""; position: absolute; left: -6px; top: 0; bottom: -1px; width: 3px;
   background: var(--rise); transform: scaleY(0); transform-origin: top;
   transition: transform .4s var(--ease);
 }
-.file:hover { background: var(--surface); padding-left: 20px; }
+.file:hover { background: var(--surface); padding-left: 18px; }
 .file:hover::before { transform: scaleY(1); }
 
-.file__idx { font-family: var(--disp); font-weight: 900; font-size: 40px; color: var(--line); line-height: 1; }
-.file:hover .file__idx { color: var(--rise); }
+/* --- TIP block: the message is the hero --- */
+.file__tipbar {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px 20px; flex-wrap: wrap;
+}
+.tip-src { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .08em; color: var(--muted); }
+.tip-src .tip-date { color: var(--ink-soft); margin-left: 8px; letter-spacing: .02em; }
+.tip-perf { font-family: var(--mono); font-size: 13px; color: var(--muted); white-space: nowrap; }
+.tip-perf b { font-size: 20px; font-weight: 600; letter-spacing: .01em; }
+.tip-perf.perf--up b   { color: var(--rise); }
+.tip-perf.perf--down b { color: var(--fall); }
+.tip-perf .tip-days { color: var(--muted); font-size: 11.5px; }
+.file__quote {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(21px, 2.6vw, 29px); line-height: 1.32;
+  color: var(--ink); margin-top: 12px; letter-spacing: .01em;
+}
 
+/* --- VERIFY block: the research, secondary --- */
+.file__verify {
+  display: grid; grid-template-columns: 116px 1fr; gap: 24px; align-items: start;
+  margin-top: 20px; padding-top: 18px; border-top: 1px dashed var(--line);
+}
 .file__plate {
   background: var(--plate); color: #F2F0E7;
-  padding: 14px 16px; border-radius: 2px;
-  font-family: var(--mono);
+  padding: 12px 14px; border-radius: 2px; font-family: var(--mono); align-self: start;
 }
-.file__ticker { font-size: 30px; font-weight: 600; letter-spacing: .04em; line-height: 1; }
-.file__sector { font-size: 10px; color: #8f8e85; letter-spacing: .1em; margin-top: 8px; text-transform: uppercase; }
+.file__ticker { font-size: 24px; font-weight: 600; letter-spacing: .04em; line-height: 1; }
+.file__sector { font-size: 9.5px; color: #8f8e85; letter-spacing: .08em; margin-top: 7px; text-transform: uppercase; }
 
 .file__body { min-width: 0; }
-.file__name { font-family: var(--serif); font-weight: 900; font-size: 30px; line-height: 1.08; letter-spacing: .01em; }
-.file__name .short { color: var(--muted); font-weight: 700; font-size: .62em; margin-left: .5em; }
-.file__tag { margin-top: 9px; font-size: 14px; color: var(--ink-soft); line-height: 1.5; max-width: 46ch; }
-.file__stats { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-family: var(--mono); font-size: 12.5px; }
+.file__vline { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 12px; }
+.file__vlabel { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.file__name { font-family: var(--serif); font-weight: 800; font-size: 20px; line-height: 1.1; color: var(--ink); }
+.file__name .short { color: var(--muted); font-weight: 700; font-size: .68em; margin-left: .35em; }
+.file__tag { margin-top: 10px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; max-width: 54ch; }
+.file__stats { margin-top: 13px; display: flex; flex-wrap: wrap; gap: 9px 20px; font-family: var(--mono); font-size: 12.5px; }
 .file__stat { display: inline-flex; align-items: baseline; gap: 7px; }
 .file__stat .k { color: var(--muted); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; }
 .file__stat .v { color: var(--ink); font-weight: 600; }
-
-.file__right { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
 
 .verdict {
   display: inline-flex; align-items: center; gap: 8px;
@@ -216,7 +232,7 @@ a { color: inherit; text-decoration: none; }
 .file__go {
   font-family: var(--mono); font-size: 12px; font-weight: 600;
   letter-spacing: .1em; text-transform: uppercase; color: var(--ink);
-  display: inline-flex; align-items: center; gap: 9px;
+  display: inline-flex; align-items: center; gap: 9px; margin-top: 18px;
 }
 .file__go .arrow { transition: transform .3s var(--ease); }
 .file:hover .file__go { color: var(--rise); }
@@ -376,16 +392,6 @@ a { color: inherit; text-decoration: none; }
   .sc-cell--ret { grid-column: 1 / -1; padding-left: 0; border-left: none; border-top: 1px solid var(--line); padding-top: 14px; margin-top: 6px; }
 }
 
-/* index perf chip */
-.perf {
-  font-family: var(--mono); font-size: 11.5px; letter-spacing: .02em; color: var(--muted);
-  display: inline-flex; align-items: baseline; gap: 6px;
-}
-.perf b { font-weight: 600; }
-.perf--up b { color: var(--rise); }
-.perf--down b { color: var(--fall); }
-.perf--flat { color: var(--muted); }
-
 /* intel — original tip / rumour */
 .intel { border: 1px solid var(--line); background: var(--paper-2); margin: 0 0 12px; }
 .intel__bar {
@@ -427,14 +433,6 @@ a { color: inherit; text-decoration: none; }
 }
 .intel__foot a { color: var(--gold); border-bottom: 1px solid rgba(169,130,47,.4); }
 .intel__foot a:hover { border-color: var(--gold); }
-
-/* index: intel marker on a file row */
-.file__intel {
-  font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .12em;
-  color: #6f5518; background: rgba(169,130,47,.14); border: 1px solid rgba(169,130,47,.4);
-  padding: 3px 7px; border-radius: 2px; margin-left: 12px; vertical-align: middle;
-  position: relative; top: -3px;
-}
 
 /* sources appendix */
 .report-body .src-list { list-style: none; padding-left: 0; margin: 18px 0; border-top: 1px solid var(--line); }
@@ -479,8 +477,6 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 940px) {
   .rlayout { grid-template-columns: 1fr; gap: 0; }
   .toc { display: none; }
-  .file { grid-template-columns: 52px 132px 1fr; gap: 18px; }
-  .file__right { grid-column: 2 / -1; flex-direction: row; align-items: center; justify-content: space-between; margin-top: 4px; }
 }
 @media (max-width: 620px) {
   /* gutters honour the notch (landscape safe area) */
@@ -493,30 +489,18 @@ a { color: inherit; text-decoration: none; }
   .rhead__name { display: none; }
   .ribbon { grid-template-columns: 1fr; }
 
-  /* research file card — clean vertical stack */
-  .file {
-    display: flex; flex-direction: column; align-items: stretch;
-    gap: 11px; padding: 24px 2px;
-  }
+  /* card: message-first; verify block stacks (plate on top) */
+  .file { padding: 24px 2px; }
   .file:hover { padding-left: 2px; background: transparent; }
-  .file__idx { display: none; }
-  .file__plate { align-self: flex-start; padding: 9px 14px; }
-  .file__ticker { font-size: 23px; }
-  .file__sector { margin-top: 6px; }
-  .file__name { font-size: 24px; }
-  .file__tag { font-size: 13.5px; margin-top: 8px; }
-  .file__stats { margin-top: 12px; gap: 8px 18px; }
-  .file__right {
-    grid-column: auto;
-    flex-direction: row; flex-wrap: wrap; align-items: center;
-    gap: 11px 14px; margin-top: 4px;
-    padding-top: 15px; border-top: 1px solid var(--line-soft);
-  }
-  .file__go { margin-left: auto; }
+  .file__tipbar { gap: 6px 14px; }
+  .file__quote { font-size: 21px; }
+  .file__verify { grid-template-columns: 1fr; gap: 14px; }
+  .file__plate { align-self: flex-start; }
+  .file__stats { gap: 8px 18px; }
 }
 
 @media (max-width: 380px) {
-  .file__name { font-size: 22px; }
+  .file__quote { font-size: 20px; }
   .masthead__kick { letter-spacing: .24em; }
 }
 

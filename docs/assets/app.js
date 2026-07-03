@@ -77,10 +77,11 @@
     var once = reports.map(function (r) {
       var arrow = r.priceMove === "up" ? '<span class="up tri-up"></span>'
                 : r.priceMove === "down" ? '<span class="down tri-down"></span>' : "";
+      var curPrice = (r.quote && r.quote.price != null) ? r.quote.price : r.price;
       return '<span class="tape__item">' +
         '<span class="sym">' + r.ticker + " " + r.short + '</span>' +
         '<span class="' + (r.priceMove === "up" ? "up" : r.priceMove === "down" ? "down" : "") + '">' +
-        arrow + r.price + '</span>' +
+        arrow + curPrice + '</span>' +
         '<span class="tag">' + (r.priceNote || "") + '</span>' +
         '</span>';
     }).join("");
@@ -102,31 +103,39 @@
           '</span><span class="v mono">' + s.v + '</span></span>';
       }).join("");
 
-      var pf = perf(r), chip = "";
-      if (pf) {
-        chip = pf.days <= 0
-          ? '<span class="perf perf--flat">研究當日建立</span>'
-          : '<span class="perf perf--' + pf.dir + '">自 ' + mmdd(r.date) +
-            ' <b>' + pf.retStr + '</b> · ' + pf.days + '天</span>';
-      }
+      var pf = perf(r);
+      var perfHtml = pf
+        ? '<span class="tip-perf perf--' + pf.dir + '">自明牌 <b>' + pf.retStr + '</b>' +
+            (pf.dir === "up" ? " ▲" : pf.dir === "down" ? " ▼" : "") +
+            ' <span class="tip-days">· ' + pf.days + '天</span></span>'
+        : "";
+      var headline = (r.intel && r.intel.headline) ? r.intel.headline : r.tagline;
+      var tipDate = (r.date || "").replace(/-/g, "/");
 
       a.innerHTML =
-        '<div class="file__idx">' + String(i + 1).padStart(2, "0") + '</div>' +
-        '<div class="file__plate">' +
-          '<div class="file__ticker">' + r.ticker + '</div>' +
-          '<div class="file__sector">' + r.sector + '</div>' +
+        '<div class="file__tip">' +
+          '<div class="file__tipbar">' +
+            '<span class="tip-src">📮 報馬仔 <span class="tip-date mono">' + tipDate + '</span></span>' +
+            perfHtml +
+          '</div>' +
+          '<div class="file__quote">「' + headline + '」</div>' +
         '</div>' +
-        '<div class="file__body">' +
-          '<div class="file__name">' + r.name +
-            '<span class="short">' + r.short + '</span>' +
-            (r.intel ? '<span class="file__intel">情報</span>' : '') + '</div>' +
-          '<div class="file__tag">' + r.tagline + '</div>' +
-          '<div class="file__stats">' + stats + '</div>' +
-        '</div>' +
-        '<div class="file__right">' +
-          '<span class="' + verdictClass(r.verdictTone) + '">' + r.verdict + '</span>' +
-          chip +
-          '<span class="file__go">閱讀完整報告 <span class="arrow">→</span></span>' +
+        '<div class="file__verify">' +
+          '<div class="file__plate">' +
+            '<div class="file__ticker">' + r.ticker + '</div>' +
+            '<div class="file__sector">' + r.sector + '</div>' +
+          '</div>' +
+          '<div class="file__body">' +
+            '<div class="file__vline">' +
+              '<span class="file__vlabel mono">查證</span>' +
+              '<span class="' + verdictClass(r.verdictTone) + '">' + r.verdict + '</span>' +
+              '<span class="file__name">' + r.name +
+                ' <span class="short">' + r.short + '</span></span>' +
+            '</div>' +
+            '<div class="file__tag">' + r.tagline + '</div>' +
+            '<div class="file__stats">' + stats + '</div>' +
+            '<span class="file__go">閱讀完整查證 <span class="arrow">→</span></span>' +
+          '</div>' +
         '</div>';
 
       wrap.appendChild(a);
@@ -200,9 +209,10 @@
       if (sc) box.insertAdjacentHTML("afterbegin", sc);
     }
 
-    // intel — the original tip/rumour that triggered the research
+    // intel FIRST — the tip/rumour leads the page (message-first).
+    // Runs after the scorecard prepend, so it lands above it: 情報 → 績效 → 報告
     if (meta && meta.intel) {
-      box.insertAdjacentHTML("beforeend", buildIntel(meta.intel));
+      box.insertAdjacentHTML("afterbegin", buildIntel(meta.intel));
     }
 
     // sources appendix (downloadable first-hand files stored in this project)
@@ -345,8 +355,13 @@
   /* ---------------------------------------------------------
      BOOT
      --------------------------------------------------------- */
-  document.addEventListener("DOMContentLoaded", function () {
+  function boot() {
     if (document.getElementById("files")) initIndex();
     if (document.getElementById("report")) initReport();
-  });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
