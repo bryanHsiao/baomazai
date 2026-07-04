@@ -104,11 +104,14 @@
       }).join("");
 
       var pf = perf(r);
-      var perfHtml = pf
-        ? '<span class="tip-perf perf--' + pf.dir + '">自明牌 <b>' + pf.retStr + '</b>' +
-            (pf.dir === "up" ? " ▲" : pf.dir === "down" ? " ▼" : "") +
-            ' <span class="tip-days">· ' + pf.days + '天</span></span>'
-        : "";
+      var perfHtml = "";
+      if (pf) {
+        perfHtml = pf.days <= 0
+          ? '<span class="tip-perf perf--flat">情報當日 · 追蹤中</span>'
+          : '<span class="tip-perf perf--' + pf.dir + '">自情報 <b>' + pf.retStr + '</b>' +
+              (pf.dir === "up" ? " ▲" : pf.dir === "down" ? " ▼" : "") +
+              ' <span class="tip-days">· ' + pf.days + '天</span></span>';
+      }
       var headline = (r.intel && r.intel.headline) ? r.intel.headline : r.tagline;
       var tipDate = (r.date || "").replace(/-/g, "/");
 
