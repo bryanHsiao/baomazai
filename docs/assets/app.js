@@ -60,6 +60,8 @@
     if (today) today.textContent = fmtDate(new Date());
 
     loadReports().then(function (reports) {
+      // newest tip first — sort by tip/明牌 date descending (ISO strings sort chronologically)
+      reports.sort(function (a, b) { return (b.date || "").localeCompare(a.date || ""); });
       buildTape(reports);
       buildFiles(reports);
     }).catch(function (err) {
