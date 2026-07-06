@@ -146,6 +146,7 @@
       var a = el("a", "file");
       a.href = "report.html?id=" + encodeURIComponent(r.id);
 
+      var isHold = r.kind === "holding";
       var q = r.quote || {};
       var fr = freshness(q.asOf);
       var stats = (r.stats || []).map(function (s) {
@@ -166,7 +167,7 @@
       var perfHtml = "";
       if (pf) {
         perfHtml = pf.days <= 0
-          ? '<span class="tip-perf perf--flat">情報當日 · 追蹤中</span>'
+          ? '<span class="tip-perf perf--flat">' + (isHold ? '研究當日 · 追蹤中' : '情報當日 · 追蹤中') + '</span>'
           : '<span class="tip-perf perf--' + pf.dir + '">自 ' + mmdd(r.date) + ' <b>' + pf.retStr + '</b>' +
               (pf.dir === "up" ? " ▲" : pf.dir === "down" ? " ▼" : "") +
               ' <span class="tip-days">· ' + pf.days + '天</span></span>';
@@ -178,7 +179,7 @@
       a.innerHTML =
         '<div class="file__tip">' +
           '<div class="file__tipbar">' +
-            '<span class="tip-src">📮 報馬仔 <span class="tip-date mono">' + tipDate + '</span>' + again + '</span>' +
+            '<span class="tip-src">' + (isHold ? '📌 自選持股' : '📮 報馬仔') + ' <span class="tip-date mono">' + tipDate + '</span>' + again + '</span>' +
             perfHtml +
           '</div>' +
           '<div class="file__quote">「' + headline + '」</div>' +
@@ -190,7 +191,7 @@
           '</div>' +
           '<div class="file__body">' +
             '<div class="file__vline">' +
-              '<span class="file__vlabel mono">查證</span>' +
+              '<span class="file__vlabel mono">' + (isHold ? '健檢' : '查證') + '</span>' +
               '<span class="' + verdictClass(r.verdictTone) + '">' + r.verdict + '</span>' +
               '<span class="file__name">' + r.name +
                 ' <span class="short">' + r.short + '</span></span>' +
@@ -350,24 +351,33 @@
   function buildIntel(r) {
     var tips = getTips(r);
     if (!tips.length) return "";
+    var isHold = r.kind === "holding";
     var note = r.intel && r.intel.note;
     var multi = tips.length > 1;
+    var vkLabel = isHold ? "健檢" : "查證";
     var entries = tips.map(function (t) {
       var imgs = (t.images || []).map(shotHtml).join("");
       return '<div class="tip-entry">' +
         '<div class="tip-entry__bar">' +
-          '<span class="intel__tag">報馬</span>' +
+          '<span class="intel__tag">' + (isHold ? "持股" : "報馬") + '</span>' +
           '<span class="intel__src">' + (t.source || "") + '</span>' +
           (t.date ? '<span class="intel__date mono">' + t.date + '</span>' : "") +
         '</div>' +
         (t.headline ? '<p class="tip-entry__quote">「' + t.headline + '」</p>' : "") +
         (t.summary ? '<p class="tip-entry__summary">' + t.summary + '</p>' : "") +
         (imgs ? '<div class="intel__shots">' + imgs + '</div>' : "") +
-        (t.verify ? '<p class="tip-entry__verify"><span class="tip-entry__vk mono">查證</span>' + t.verify + '</p>' : "") +
+        (t.verify ? '<p class="tip-entry__verify"><span class="tip-entry__vk mono">' + vkLabel + '</span>' + t.verify + '</p>' : "") +
         '</div>';
     }).join("");
     var noteLink = note
       ? '<a href="' + note + '" target="_blank" rel="noopener">完整逐字紀錄 →</a> · ' : "";
+    if (isHold) {
+      return '<h2>持股健檢 · SELF-CHECK</h2>' +
+        '<div class="intel">' +
+          '<div class="intel__timeline">' + entries + '</div>' +
+          '<p class="intel__foot">' + noteLink + '自選持股的基本面健檢，非個人化投資建議。</p>' +
+        '</div>';
+    }
     return '<h2>情報來源 · INTEL' + (multi ? '（此檔已被報 ' + tips.length + ' 次）' : '') + '</h2>' +
       '<div class="intel">' +
         '<div class="intel__timeline">' + entries + '</div>' +
