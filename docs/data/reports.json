@@ -32,7 +32,7 @@
     "file": "data/1718/report.md",
     "date": "2026-06-25",
     "quote": {
-      "price": 15.65,
+      "price": 15.5,
       "asOf": "2026-07-06",
       "prevClose": 14.95
     },
@@ -101,7 +101,7 @@
     "file": "data/6226/report.md",
     "date": "2026-06-26",
     "quote": {
-      "price": 23.15,
+      "price": 23.1,
       "asOf": "2026-07-06",
       "prevClose": 24
     },
@@ -152,9 +152,9 @@
     "file": "data/1449/report.md",
     "date": "2026-06-08",
     "quote": {
-      "price": 14.55,
-      "asOf": "2026-07-03",
-      "prevClose": 14.3
+      "price": 14.85,
+      "asOf": "2026-07-06",
+      "prevClose": 14.55
     },
     "intel": {
       "received": "2026-06-08",
@@ -233,7 +233,7 @@
     "file": "data/3029/report.md",
     "date": "2026-06-01",
     "quote": {
-      "price": 105.5,
+      "price": 106,
       "asOf": "2026-07-06",
       "prevClose": 102.5
     },
@@ -335,9 +335,9 @@
     "file": "data/6112/report.md",
     "date": "2026-06-01",
     "quote": {
-      "price": 44.7,
-      "asOf": "2026-07-03",
-      "prevClose": 44.75
+      "price": 45.15,
+      "asOf": "2026-07-06",
+      "prevClose": 44.7
     },
     "intel": {
       "received": "2026-06-01",
@@ -386,9 +386,9 @@
     "file": "data/3293/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 797,
-      "asOf": "2026-07-04",
-      "prevClose": 800
+      "price": 795,
+      "asOf": "2026-07-06",
+      "prevClose": 797
     },
     "intel": {
       "received": "2026-07-04",
