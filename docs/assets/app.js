@@ -45,6 +45,35 @@
     };
   }
 
+  // normalize a report's intel into a chronological (newest-first) tip list.
+  // supports both a single legacy intel object and an intel.tips[] timeline.
+  function getTips(r) {
+    if (!r || !r.intel) return [];
+    var arr = (r.intel.tips && r.intel.tips.length)
+      ? r.intel.tips.slice()
+      : [{
+          date: r.intel.received, source: r.intel.source,
+          headline: r.intel.headline, summary: r.intel.summary,
+          images: r.intel.images || [], verify: r.intel.verify
+        }];
+    arr.sort(function (a, b) { return (b.date || "").localeCompare(a.date || ""); });
+    return arr;
+  }
+  function latestTipDate(r) {
+    var t = getTips(r);
+    return (t[0] && t[0].date) || r.date || "";
+  }
+  function shotHtml(im) {
+    return '<figure class="intel-shot">' +
+      '<a href="' + im.src + '" target="_blank" rel="noopener">' +
+        '<img src="' + im.src + '" alt="" loading="lazy" ' +
+        'onerror="this.closest(&quot;.intel-shot&quot;).classList.add(&quot;is-missing&quot;)">' +
+        '<span class="intel-shot__missing mono">圖片待補<br>' + im.src.split("/").pop() + '</span>' +
+      '</a>' +
+      (im.caption ? '<figcaption>' + im.caption + '</figcaption>' : "") +
+      '</figure>';
+  }
+
   function loadReports() {
     return fetch(DATA_URL, { cache: "no-cache" }).then(function (r) {
       if (!r.ok) throw new Error("reports.json " + r.status);
@@ -60,8 +89,8 @@
     if (today) today.textContent = fmtDate(new Date());
 
     loadReports().then(function (reports) {
-      // newest tip first — sort by tip/明牌 date descending (ISO strings sort chronologically)
-      reports.sort(function (a, b) { return (b.date || "").localeCompare(a.date || ""); });
+      // newest tip first — sort by the most recent tip date (handles multi-tip stocks)
+      reports.sort(function (a, b) { return latestTipDate(b).localeCompare(latestTipDate(a)); });
       buildTape(reports);
       buildFiles(reports);
     }).catch(function (err) {
@@ -105,22 +134,25 @@
           '</span><span class="v mono">' + s.v + '</span></span>';
       }).join("");
 
+      var tips = getTips(r);
+      var latest = tips[0] || {};
       var pf = perf(r);
       var perfHtml = "";
       if (pf) {
         perfHtml = pf.days <= 0
           ? '<span class="tip-perf perf--flat">情報當日 · 追蹤中</span>'
-          : '<span class="tip-perf perf--' + pf.dir + '">自情報 <b>' + pf.retStr + '</b>' +
+          : '<span class="tip-perf perf--' + pf.dir + '">自 ' + mmdd(r.date) + ' <b>' + pf.retStr + '</b>' +
               (pf.dir === "up" ? " ▲" : pf.dir === "down" ? " ▼" : "") +
               ' <span class="tip-days">· ' + pf.days + '天</span></span>';
       }
-      var headline = (r.intel && r.intel.headline) ? r.intel.headline : r.tagline;
-      var tipDate = (r.date || "").replace(/-/g, "/");
+      var headline = latest.headline || r.tagline;
+      var tipDate = ((latest.date || r.date) || "").replace(/-/g, "/");
+      var again = tips.length > 1 ? '<span class="tip-again">再報 ×' + tips.length + '</span>' : '';
 
       a.innerHTML =
         '<div class="file__tip">' +
           '<div class="file__tipbar">' +
-            '<span class="tip-src">📮 報馬仔 <span class="tip-date mono">' + tipDate + '</span></span>' +
+            '<span class="tip-src">📮 報馬仔 <span class="tip-date mono">' + tipDate + '</span>' + again + '</span>' +
             perfHtml +
           '</div>' +
           '<div class="file__quote">「' + headline + '」</div>' +
@@ -217,7 +249,7 @@
     // intel FIRST — the tip/rumour leads the page (message-first).
     // Runs after the scorecard prepend, so it lands above it: 情報 → 績效 → 報告
     if (meta && meta.intel) {
-      box.insertAdjacentHTML("afterbegin", buildIntel(meta.intel));
+      box.insertAdjacentHTML("afterbegin", buildIntel(meta));
     }
 
     // sources appendix (downloadable first-hand files stored in this project)
@@ -281,28 +313,30 @@
     '</div>';
   }
 
-  function buildIntel(intel) {
-    var imgs = (intel.images || []).map(function (im) {
-      return '<figure class="intel-shot">' +
-        '<a href="' + im.src + '" target="_blank" rel="noopener">' +
-          '<img src="' + im.src + '" alt="" loading="lazy" ' +
-          'onerror="this.closest(&quot;.intel-shot&quot;).classList.add(&quot;is-missing&quot;)">' +
-          '<span class="intel-shot__missing mono">圖片待補<br>' + im.src.split("/").pop() + '</span>' +
-        '</a>' +
-        (im.caption ? '<figcaption>' + im.caption + '</figcaption>' : "") +
-        '</figure>';
-    }).join("");
-    var noteLink = intel.note
-      ? '<a href="' + intel.note + '" target="_blank" rel="noopener">完整逐字紀錄 →</a> · ' : "";
-    return '<h2>情報來源 · INTEL</h2>' +
-      '<div class="intel">' +
-        '<div class="intel__bar">' +
-          '<span class="intel__tag">情報存證</span>' +
-          '<span class="intel__src">' + (intel.source || "") + '</span>' +
-          (intel.received ? '<span class="intel__date mono">收到 ' + intel.received + '</span>' : "") +
+  function buildIntel(r) {
+    var tips = getTips(r);
+    if (!tips.length) return "";
+    var note = r.intel && r.intel.note;
+    var multi = tips.length > 1;
+    var entries = tips.map(function (t) {
+      var imgs = (t.images || []).map(shotHtml).join("");
+      return '<div class="tip-entry">' +
+        '<div class="tip-entry__bar">' +
+          '<span class="intel__tag">報馬</span>' +
+          '<span class="intel__src">' + (t.source || "") + '</span>' +
+          (t.date ? '<span class="intel__date mono">' + t.date + '</span>' : "") +
         '</div>' +
-        (intel.summary ? '<p class="intel__summary">' + intel.summary + '</p>' : "") +
+        (t.headline ? '<p class="tip-entry__quote">「' + t.headline + '」</p>' : "") +
+        (t.summary ? '<p class="tip-entry__summary">' + t.summary + '</p>' : "") +
         (imgs ? '<div class="intel__shots">' + imgs + '</div>' : "") +
+        (t.verify ? '<p class="tip-entry__verify"><span class="tip-entry__vk mono">查證</span>' + t.verify + '</p>' : "") +
+        '</div>';
+    }).join("");
+    var noteLink = note
+      ? '<a href="' + note + '" target="_blank" rel="noopener">完整逐字紀錄 →</a> · ' : "";
+    return '<h2>情報來源 · INTEL' + (multi ? '（此檔已被報 ' + tips.length + ' 次）' : '') + '</h2>' +
+      '<div class="intel">' +
+        '<div class="intel__timeline">' + entries + '</div>' +
         '<p class="intel__foot">' + noteLink + '原始消息存證，未經查證，非投資建議。</p>' +
       '</div>';
   }
