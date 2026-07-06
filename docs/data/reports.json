@@ -12,14 +12,30 @@
     "priceMove": "up",
     "priceNote": "漲停 +9.9%",
     "stats": [
-      { "k": "股價", "v": "14.95" },
-      { "k": "PBR", "v": "0.89" },
-      { "k": "殖利率", "v": "0%" },
-      { "k": "風險", "v": "中高" }
+      {
+        "k": "股價",
+        "v": "14.95"
+      },
+      {
+        "k": "PBR",
+        "v": "0.89"
+      },
+      {
+        "k": "殖利率",
+        "v": "0%"
+      },
+      {
+        "k": "風險",
+        "v": "中高"
+      }
     ],
     "file": "data/1718/report.md",
     "date": "2026-06-25",
-    "quote": { "price": 14.95, "asOf": "2026-07-03", "prevClose": 13.60 },
+    "quote": {
+      "price": 15.65,
+      "asOf": "2026-07-06",
+      "prevClose": 14.95
+    },
     "intel": {
       "note": "data/1718/intel/intel.md",
       "tips": [
@@ -29,7 +45,10 @@
           "headline": "馬克斯點名：中纖已跟 SpaceX 簽超級大訂單，閉眼入、一個月必上8字頭",
           "summary": "社群貼文稱「馬斯克直接點名中纖(1718)已跟 SpaceX 簽超級大訂單」「可以買、閉眼入」「一個月必上8字頭」，附中纖 7/3 漲停 14.95 報價。",
           "images": [
-            { "src": "data/1718/intel/tip2-2026-07-06.png", "caption": "Threads／股癌貼文：稱中纖已跟 SpaceX 簽大訂單、閉眼入必上8字頭（附 7/3 漲停 14.95）" }
+            {
+              "src": "data/1718/intel/tip2-2026-07-06.png",
+              "caption": "Threads／股癌貼文：稱中纖已跟 SpaceX 簽大訂單、閉眼入必上8字頭（附 7/3 漲停 14.95）"
+            }
           ],
           "verify": "不實／移花接木。打進 SpaceX 供應鏈的是「群創（3481）」（FOPLP 封裝 RF 晶片），不是中纖；中纖是化纖／乙二醇化工廠，查無任何 SpaceX 訂單，馬斯克也未點名。且中纖近期為處置股／妖股，「閉眼入、必上8字頭」是典型社群炒作，風險極高。"
         },
@@ -39,7 +58,10 @@
           "headline": "請參考這一檔短期，賺個幾千就跑",
           "summary": "友人在 LINE 群組推薦中纖短線操作，附中纖 06/25 漲停 10.15（+9.97%）報價。",
           "images": [
-            { "src": "data/1718/intel/S__156647460.jpg", "caption": "LINE 對話：推薦中纖（1718）短線「賺個幾千就跑」；附中纖 06/25 漲停 10.15（+9.97%）報價" }
+            {
+              "src": "data/1718/intel/S__156647460.jpg",
+              "caption": "LINE 對話：推薦中纖（1718）短線「賺個幾千就跑」；附中纖 06/25 漲停 10.15（+9.97%）報價"
+            }
           ],
           "verify": "短線明牌，非基本面推薦。研究結論為中性偏保守——中纖有土地資產與台中銀股權（PBR<1），但本業獲利薄弱、連年不配息。"
         }
@@ -59,14 +81,30 @@
     "priceMove": "up",
     "priceNote": "處置股 6/30–7/13",
     "stats": [
-      { "k": "股價", "v": "≈24" },
-      { "k": "PBR", "v": "2.3" },
-      { "k": "本益比", "v": "虧損" },
-      { "k": "風險", "v": "極高" }
+      {
+        "k": "股價",
+        "v": "≈24"
+      },
+      {
+        "k": "PBR",
+        "v": "2.3"
+      },
+      {
+        "k": "本益比",
+        "v": "虧損"
+      },
+      {
+        "k": "風險",
+        "v": "極高"
+      }
     ],
     "file": "data/6226/report.md",
     "date": "2026-06-26",
-    "quote": { "price": 24.00, "asOf": "2026-07-03", "prevClose": 26.65 },
+    "quote": {
+      "price": 23.15,
+      "asOf": "2026-07-06",
+      "prevClose": 24
+    },
     "intel": {
       "received": "2026-06-26",
       "headline": "週五忘記講這一檔，會破 60",
@@ -74,7 +112,10 @@
       "summary": "友人在 LINE 群組推薦光鼎（6226）：「週五忘記講這一檔，會破 60」，附光鼎 06/26 漲停 18.25（+9.94%）報價。屬消息面喊價，與研究結論（不建議、長期虧損、處置股）強烈背離。",
       "note": "data/6226/intel/intel.md",
       "images": [
-        { "src": "data/6226/intel/S__156647459.jpg", "caption": "LINE 對話：推薦光鼎（6226）「會破 60」；附光鼎 06/26 漲停 18.25（+9.94%）報價" }
+        {
+          "src": "data/6226/intel/S__156647459.jpg",
+          "caption": "LINE 對話：推薦光鼎（6226）「會破 60」；附光鼎 06/26 漲停 18.25（+9.94%）報價"
+        }
       ]
     }
   },
@@ -91,14 +132,30 @@
     "priceMove": "up",
     "priceNote": "漲停收盤",
     "stats": [
-      { "k": "股價", "v": "14.90" },
-      { "k": "PBR", "v": "0.82" },
-      { "k": "殖利率", "v": "0%" },
-      { "k": "風險", "v": "高" }
+      {
+        "k": "股價",
+        "v": "14.90"
+      },
+      {
+        "k": "PBR",
+        "v": "0.82"
+      },
+      {
+        "k": "殖利率",
+        "v": "0%"
+      },
+      {
+        "k": "風險",
+        "v": "高"
+      }
     ],
     "file": "data/1449/report.md",
     "date": "2026-06-08",
-    "quote": { "price": 14.55, "asOf": "2026-07-03", "prevClose": 14.30 },
+    "quote": {
+      "price": 14.55,
+      "asOf": "2026-07-03",
+      "prevClose": 14.3
+    },
     "intel": {
       "received": "2026-06-08",
       "headline": "打進特斯拉／航太，建議長期持有，目標 18–22 元",
@@ -106,17 +163,41 @@
       "summary": "友人在 LINE 群組推薦佳和（1449）：紡織起家，稱已打進特斯拉／無人機／航太（該則訊息後被收回）；系出永光染料業務人脈推薦，建議長期持有，目標 18–22 元、看第四季。並附 winvest.tw 月營收截圖：2026/04 月營收 3.77 億，月增 34.69%、年增 75.49%。",
       "note": "data/1449/intel/intel.md",
       "images": [
-        { "src": "data/1449/intel/LINE_20260703_173105.jpg", "caption": "LINE 群組對話：打進特斯拉／無人機／航太（後收回）、紡織起家、永光染料業務推薦、建議長期持有、目標 18–22 元（第四季）" },
-        { "src": "data/1449/intel/LINE_20260703_173128.jpg", "caption": "winvest.tw 佳和月營收：2026/04 月營收 3.77 億，月增 34.69%、年增 75.49%，累計年增 35.36%" }
+        {
+          "src": "data/1449/intel/LINE_20260703_173105.jpg",
+          "caption": "LINE 群組對話：打進特斯拉／無人機／航太（後收回）、紡織起家、永光染料業務推薦、建議長期持有、目標 18–22 元（第四季）"
+        },
+        {
+          "src": "data/1449/intel/LINE_20260703_173128.jpg",
+          "caption": "winvest.tw 佳和月營收：2026/04 月營收 3.77 億，月增 34.69%、年增 75.49%，累計年增 35.36%"
+        }
       ]
     },
     "sources": [
-      { "label": "2025 年報", "file": "data/1449/sources/2025-annual-report.pdf" },
-      { "label": "2025 合併財務報告", "file": "data/1449/sources/2025-consolidated-financial-statements.pdf" },
-      { "label": "2026 第一季合併財務報告", "file": "data/1449/sources/2026-Q1-consolidated-financial-statements.pdf" },
-      { "label": "2025/10/21 法人說明會簡報", "file": "data/1449/sources/2025-10-21-investor-presentation.pdf" },
-      { "label": "研究筆記", "file": "data/1449/sources/research-notes.md" },
-      { "label": "研究規格（驗收條件）", "file": "data/1449/sources/research-spec.md" }
+      {
+        "label": "2025 年報",
+        "file": "data/1449/sources/2025-annual-report.pdf"
+      },
+      {
+        "label": "2025 合併財務報告",
+        "file": "data/1449/sources/2025-consolidated-financial-statements.pdf"
+      },
+      {
+        "label": "2026 第一季合併財務報告",
+        "file": "data/1449/sources/2026-Q1-consolidated-financial-statements.pdf"
+      },
+      {
+        "label": "2025/10/21 法人說明會簡報",
+        "file": "data/1449/sources/2025-10-21-investor-presentation.pdf"
+      },
+      {
+        "label": "研究筆記",
+        "file": "data/1449/sources/research-notes.md"
+      },
+      {
+        "label": "研究規格（驗收條件）",
+        "file": "data/1449/sources/research-spec.md"
+      }
     ]
   },
   {
@@ -132,14 +213,30 @@
     "priceMove": "up",
     "priceNote": "AI通路配息",
     "stats": [
-      { "k": "股價", "v": "102.5" },
-      { "k": "本益比", "v": "15.7" },
-      { "k": "PBR", "v": "3.4" },
-      { "k": "殖利率", "v": "≈5%" }
+      {
+        "k": "股價",
+        "v": "102.5"
+      },
+      {
+        "k": "本益比",
+        "v": "15.7"
+      },
+      {
+        "k": "PBR",
+        "v": "3.4"
+      },
+      {
+        "k": "殖利率",
+        "v": "≈5%"
+      }
     ],
     "file": "data/3029/report.md",
     "date": "2026-06-01",
-    "quote": { "price": 102.5, "asOf": "2026-07-03", "prevClose": 102.0 },
+    "quote": {
+      "price": 105.5,
+      "asOf": "2026-07-06",
+      "prevClose": 102.5
+    },
     "intel": {
       "received": "2026-06-01",
       "source": "LINE（友人分享）",
@@ -147,7 +244,10 @@
       "headline": "這三支軟體股給你參考",
       "note": "data/3029/intel/intel.md",
       "images": [
-        { "src": "data/3029/intel/tip-2026-06-01.png", "caption": "LINE 對話（2026/6/1）：友人推薦三支「軟體股」——零壹3029、大綜3147、邁達特6112" }
+        {
+          "src": "data/3029/intel/tip-2026-06-01.png",
+          "caption": "LINE 對話（2026/6/1）：友人推薦三支「軟體股」——零壹3029、大綜3147、邁達特6112"
+        }
       ]
     }
   },
@@ -164,14 +264,30 @@
     "priceMove": "down",
     "priceNote": "AI伺服器SI",
     "stats": [
-      { "k": "股價", "v": "236" },
-      { "k": "本益比", "v": "28" },
-      { "k": "PBR", "v": "6.4" },
-      { "k": "殖利率", "v": "≈2.8%" }
+      {
+        "k": "股價",
+        "v": "236"
+      },
+      {
+        "k": "本益比",
+        "v": "28"
+      },
+      {
+        "k": "PBR",
+        "v": "6.4"
+      },
+      {
+        "k": "殖利率",
+        "v": "≈2.8%"
+      }
     ],
     "file": "data/3147/report.md",
     "date": "2026-06-01",
-    "quote": { "price": 236.0, "asOf": "2026-07-03", "prevClose": 239.0 },
+    "quote": {
+      "price": 240,
+      "asOf": "2026-07-06",
+      "prevClose": 236
+    },
     "intel": {
       "received": "2026-06-01",
       "source": "LINE（友人分享）",
@@ -179,7 +295,10 @@
       "headline": "這三支軟體股給你參考",
       "note": "data/3147/intel/intel.md",
       "images": [
-        { "src": "data/3147/intel/tip-2026-06-01.png", "caption": "LINE 對話（2026/6/1）：友人推薦三支「軟體股」——零壹3029、大綜3147、邁達特6112" }
+        {
+          "src": "data/3147/intel/tip-2026-06-01.png",
+          "caption": "LINE 對話（2026/6/1）：友人推薦三支「軟體股」——零壹3029、大綜3147、邁達特6112"
+        }
       ]
     }
   },
@@ -196,14 +315,30 @@
     "priceMove": "flat",
     "priceNote": "佳世達集團",
     "stats": [
-      { "k": "股價", "v": "44.7" },
-      { "k": "本益比", "v": "24.6" },
-      { "k": "PBR", "v": "2.1" },
-      { "k": "殖利率", "v": "≈3.7%" }
+      {
+        "k": "股價",
+        "v": "44.7"
+      },
+      {
+        "k": "本益比",
+        "v": "24.6"
+      },
+      {
+        "k": "PBR",
+        "v": "2.1"
+      },
+      {
+        "k": "殖利率",
+        "v": "≈3.7%"
+      }
     ],
     "file": "data/6112/report.md",
     "date": "2026-06-01",
-    "quote": { "price": 44.7, "asOf": "2026-07-03", "prevClose": 44.75 },
+    "quote": {
+      "price": 44.7,
+      "asOf": "2026-07-03",
+      "prevClose": 44.75
+    },
     "intel": {
       "received": "2026-06-01",
       "source": "LINE（友人分享）",
@@ -211,7 +346,10 @@
       "headline": "這三支軟體股給你參考",
       "note": "data/6112/intel/intel.md",
       "images": [
-        { "src": "data/6112/intel/tip-2026-06-01.png", "caption": "LINE 對話（2026/6/1）：友人推薦三支「軟體股」——零壹3029、大綜3147、邁達特6112" }
+        {
+          "src": "data/6112/intel/tip-2026-06-01.png",
+          "caption": "LINE 對話（2026/6/1）：友人推薦三支「軟體股」——零壹3029、大綜3147、邁達特6112"
+        }
       ]
     }
   },
@@ -228,14 +366,30 @@
     "priceMove": "down",
     "priceNote": "除息7/8·配36",
     "stats": [
-      { "k": "股價", "v": "797" },
-      { "k": "本益比", "v": "≈19.8" },
-      { "k": "殖利率", "v": "4.52%" },
-      { "k": "除息日", "v": "7/08" }
+      {
+        "k": "股價",
+        "v": "797"
+      },
+      {
+        "k": "本益比",
+        "v": "≈19.8"
+      },
+      {
+        "k": "殖利率",
+        "v": "4.52%"
+      },
+      {
+        "k": "除息日",
+        "v": "7/08"
+      }
     ],
     "file": "data/3293/report.md",
     "date": "2026-07-04",
-    "quote": { "price": 797, "asOf": "2026-07-04", "prevClose": 800 },
+    "quote": {
+      "price": 797,
+      "asOf": "2026-07-04",
+      "prevClose": 800
+    },
     "intel": {
       "received": "2026-07-04",
       "headline": "看鈊象能參與除息嗎？",
@@ -243,7 +397,10 @@
       "summary": "有人詢問鈊象（3293）能不能參與除息。查證：2026/7/8 除息、每股配 36 元（半年配），現價殖利率約 4.52%，填息紀錄佳；但高股利要注意二代健保補充保費 2.11% 與股利所得稅。須 7/7 收盤前持有才參與本次。",
       "note": "data/3293/intel/intel.md",
       "images": [
-        { "src": "data/3293/intel/inquiry-2026-07-04.png", "caption": "LINE 詢問：看鈊象能參與除息嗎？" }
+        {
+          "src": "data/3293/intel/inquiry-2026-07-04.png",
+          "caption": "LINE 詢問：看鈊象能參與除息嗎？"
+        }
       ]
     }
   },
@@ -260,14 +417,30 @@
     "priceMove": "up",
     "priceNote": "MOSFET·漲停",
     "stats": [
-      { "k": "股價", "v": "352" },
-      { "k": "本益比", "v": "≈60" },
-      { "k": "PBR", "v": "6.8" },
-      { "k": "殖利率", "v": "≈1.4%" }
+      {
+        "k": "股價",
+        "v": "352"
+      },
+      {
+        "k": "本益比",
+        "v": "≈60"
+      },
+      {
+        "k": "PBR",
+        "v": "6.8"
+      },
+      {
+        "k": "殖利率",
+        "v": "≈1.4%"
+      }
     ],
     "file": "data/8261/report.md",
     "date": "2026-07-04",
-    "quote": { "price": 352, "asOf": "2026-07-06", "prevClose": 320 },
+    "quote": {
+      "price": 352,
+      "asOf": "2026-07-06",
+      "prevClose": 320
+    },
     "intel": {
       "note": "data/8261/intel/intel.md",
       "tips": [
@@ -284,7 +457,10 @@
           "headline": "股癌點名 MOSFET 缺貨，三雄：富鼎、大中、尼克森",
           "summary": "股癌點名 MOSFET 產業缺貨，「三雄」為富鼎 8261、大中 6435、尼克森 3317；另提強茂 2481 也有 MOSFET 產品線並打入 GB200 供應鏈。",
           "images": [
-            { "src": "data/8261/intel/mosfet-tip-2026-07-05.jpg", "caption": "股癌點名 MOSFET 缺貨族群（富鼎為三雄之一）" }
+            {
+              "src": "data/8261/intel/mosfet-tip-2026-07-05.jpg",
+              "caption": "股癌點名 MOSFET 缺貨族群（富鼎為三雄之一）"
+            }
           ],
           "verify": "產業缺貨漲價為真（A 級），但富鼎目前實際獲利成長來自散熱風扇（DC FAN 年增 287%、占營收 36%）與 AI 伺服器電源，而非「MOSFET 缺貨漲價」——法說反稱中低壓 MOSFET 是殺價的「殺戮市場」。"
         }
@@ -304,14 +480,30 @@
     "priceMove": "up",
     "priceNote": "MOSFET·漲停",
     "stats": [
-      { "k": "股價", "v": "420" },
-      { "k": "本益比", "v": "≈39" },
-      { "k": "PBR", "v": "≈8" },
-      { "k": "殖利率", "v": "≈3.9%" }
+      {
+        "k": "股價",
+        "v": "420"
+      },
+      {
+        "k": "本益比",
+        "v": "≈39"
+      },
+      {
+        "k": "PBR",
+        "v": "≈8"
+      },
+      {
+        "k": "殖利率",
+        "v": "≈3.9%"
+      }
     ],
     "file": "data/6435/report.md",
     "date": "2026-07-04",
-    "quote": { "price": 420, "asOf": "2026-07-06", "prevClose": 382 },
+    "quote": {
+      "price": 420,
+      "asOf": "2026-07-06",
+      "prevClose": 382
+    },
     "intel": {
       "received": "2026-07-04",
       "source": "股癌 podcast／社群",
@@ -319,7 +511,10 @@
       "summary": "股癌點名 MOSFET 產業缺貨，「三雄」為富鼎 8261、大中 6435、尼克森 3317。",
       "note": "data/6435/intel/intel.md",
       "images": [
-        { "src": "data/6435/intel/mosfet-tip-2026-07-05.jpg", "caption": "股癌點名 MOSFET 缺貨族群（大中為三雄之一）" }
+        {
+          "src": "data/6435/intel/mosfet-tip-2026-07-05.jpg",
+          "caption": "股癌點名 MOSFET 缺貨族群（大中為三雄之一）"
+        }
       ]
     }
   },
@@ -336,14 +531,30 @@
     "priceMove": "up",
     "priceNote": "MOSFET·漲停",
     "stats": [
-      { "k": "股價", "v": "105.5" },
-      { "k": "本益比", "v": ">50" },
-      { "k": "PBR", "v": "≈2.6" },
-      { "k": "殖利率", "v": "≈0.5%" }
+      {
+        "k": "股價",
+        "v": "105.5"
+      },
+      {
+        "k": "本益比",
+        "v": ">50"
+      },
+      {
+        "k": "PBR",
+        "v": "≈2.6"
+      },
+      {
+        "k": "殖利率",
+        "v": "≈0.5%"
+      }
     ],
     "file": "data/3317/report.md",
     "date": "2026-07-04",
-    "quote": { "price": 105.5, "asOf": "2026-07-06", "prevClose": 96.2 },
+    "quote": {
+      "price": 105.5,
+      "asOf": "2026-07-06",
+      "prevClose": 96.2
+    },
     "intel": {
       "received": "2026-07-04",
       "source": "股癌 podcast／社群",
@@ -351,7 +562,10 @@
       "summary": "股癌點名 MOSFET 產業缺貨，「三雄」為富鼎 8261、大中 6435、尼克森 3317。",
       "note": "data/3317/intel/intel.md",
       "images": [
-        { "src": "data/3317/intel/mosfet-tip-2026-07-05.jpg", "caption": "股癌點名 MOSFET 缺貨族群（尼克森為三雄之一）" }
+        {
+          "src": "data/3317/intel/mosfet-tip-2026-07-05.jpg",
+          "caption": "股癌點名 MOSFET 缺貨族群（尼克森為三雄之一）"
+        }
       ]
     }
   },
@@ -368,14 +582,30 @@
     "priceMove": "up",
     "priceNote": "MOSFET·漲停",
     "stats": [
-      { "k": "股價", "v": "227.5" },
-      { "k": "本益比", "v": "≈24" },
-      { "k": "PBR", "v": "≈1.8" },
-      { "k": "殖利率", "v": "≈2.6%" }
+      {
+        "k": "股價",
+        "v": "227.5"
+      },
+      {
+        "k": "本益比",
+        "v": "≈24"
+      },
+      {
+        "k": "PBR",
+        "v": "≈1.8"
+      },
+      {
+        "k": "殖利率",
+        "v": "≈2.6%"
+      }
     ],
     "file": "data/2481/report.md",
     "date": "2026-07-04",
-    "quote": { "price": 227.5, "asOf": "2026-07-06", "prevClose": 207 },
+    "quote": {
+      "price": 227.5,
+      "asOf": "2026-07-06",
+      "prevClose": 207
+    },
     "intel": {
       "received": "2026-07-04",
       "source": "股癌 podcast／社群",
@@ -383,7 +613,10 @@
       "summary": "股癌點名 MOSFET 缺貨，提到強茂 2481 也有 MOSFET 產品線，且已打入輝達 GB200 供應鏈。",
       "note": "data/2481/intel/intel.md",
       "images": [
-        { "src": "data/2481/intel/mosfet-tip-2026-07-05.jpg", "caption": "股癌：強茂有 MOSFET 產品線並打入 GB200 供應鏈" }
+        {
+          "src": "data/2481/intel/mosfet-tip-2026-07-05.jpg",
+          "caption": "股癌：強茂有 MOSFET 產品線並打入 GB200 供應鏈"
+        }
       ]
     }
   }
