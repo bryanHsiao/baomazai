@@ -31,6 +31,23 @@
   }
   function mmdd(s) { var p = (s || "").split("-"); return p[1] + "/" + p[2]; }
 
+  // report-price freshness relative to the viewer's "today".
+  // the site is static, so every quote is a daily snapshot — this labels
+  // which day it's from and flags when it's not today's.
+  function freshness(asOf) {
+    if (!asOf) return null;
+    var now = new Date();
+    var today = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+    var diff = Math.round((today - parseDate(asOf)) / 86400000);
+    if (diff <= 0) return { cls: "today", txt: "今日報價", short: "今日" };
+    if (diff === 1) return { cls: "recent", txt: "報價 " + mmdd(asOf) + "（昨日）", short: mmdd(asOf) };
+    return {
+      cls: diff >= 4 ? "stale" : "recent",
+      txt: "報價 " + mmdd(asOf) + "（" + diff + " 天前）",
+      short: mmdd(asOf)
+    };
+  }
+
   function perf(meta) {
     if (!meta || !meta.quote || meta.quote.price == null) return null;
     var base = parseFloat(meta.price), cur = Number(meta.quote.price);
@@ -129,10 +146,19 @@
       var a = el("a", "file");
       a.href = "report.html?id=" + encodeURIComponent(r.id);
 
+      var q = r.quote || {};
+      var fr = freshness(q.asOf);
       var stats = (r.stats || []).map(function (s) {
+        // keep the visible 股價 in sync with the auto-updated quote snapshot
+        var v = (s.k === "股價" && q.price != null) ? q.price : s.v;
         return '<span class="file__stat"><span class="k">' + s.k +
-          '</span><span class="v mono">' + s.v + '</span></span>';
+          '</span><span class="v mono">' + v + '</span></span>';
       }).join("");
+      var asofHtml = fr
+        ? '<div class="file__asof file__asof--' + fr.cls + '">' +
+            '<span class="asof-dot"></span>' + fr.txt +
+          '</div>'
+        : "";
 
       var tips = getTips(r);
       var latest = tips[0] || {};
@@ -171,6 +197,7 @@
             '</div>' +
             '<div class="file__tag">' + r.tagline + '</div>' +
             '<div class="file__stats">' + stats + '</div>' +
+            asofHtml +
             '<span class="file__go">閱讀完整查證 <span class="arrow">→</span></span>' +
           '</div>' +
         '</div>';
@@ -291,10 +318,12 @@
     var retClass = pf.dir === "up" ? "up" : (pf.dir === "down" ? "down" : "");
     var retDisplay = pf.days <= 0 ? "研究當日" : pf.retStr;
     var daysSub = pf.days <= 0 ? "研究當日建立" : "持有 " + pf.days + " 天";
+    var fr = freshness(pf.asOf) || { cls: "recent", txt: "報價 " + mmdd(pf.asOf), short: mmdd(pf.asOf) };
     return '<div class="scorecard">' +
       '<div class="scorecard__head">' +
         '<span class="scorecard__label">績效追蹤 · SCORECARD</span>' +
-        '<span class="scorecard__asof">現價截至 ' + pf.asOf + ' 收盤</span>' +
+        '<span class="scorecard__asof scorecard__asof--' + fr.cls + '">' +
+          '<span class="asof-dot"></span>' + fr.txt + '</span>' +
       '</div>' +
       '<div class="scorecard__grid">' +
         '<div class="sc-cell"><span class="sc-k">基準價</span>' +
@@ -303,13 +332,16 @@
         '<div class="sc-arrow">→</div>' +
         '<div class="sc-cell"><span class="sc-k">現價</span>' +
           '<span class="sc-v mono">' + pf.cur.toFixed(2) + '</span>' +
-          '<span class="sc-sub">' + pf.asOf + '</span></div>' +
+          '<span class="sc-sub sc-sub--' + fr.cls + '">' + pf.asOf + '</span></div>' +
         '<div class="sc-cell sc-cell--ret"><span class="sc-k">若當時買入至今</span>' +
           '<span class="sc-v mono ' + retClass + '">' + retDisplay + '</span>' +
           '<span class="sc-sub">' + daysSub + '</span></div>' +
       '</div>' +
       '<p class="scorecard__note">研究判斷：<b>' + meta.verdict + '</b>。' +
-        '上表為單純價格變動，未計股利與交易成本，非投資建議；報價為快照，需人工或 Tier 1 後端定期更新。</p>' +
+        '上表為單純價格變動，未計股利與交易成本，非投資建議。' +
+        '報價為每日快照（交易日收盤後自動更新），<b>非即時</b>' +
+        (fr.cls === "stale" ? '；目前這筆為 ' + pf.asOf + ' 的資料，可能不是最新。' : '。') +
+      '</p>' +
     '</div>';
   }
 
