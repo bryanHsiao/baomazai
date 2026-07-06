@@ -32,7 +32,7 @@
     "file": "data/1718/report.md",
     "date": "2026-06-25",
     "quote": {
-      "price": 15.5,
+      "price": 15.65,
       "asOf": "2026-07-06",
       "prevClose": 14.95
     },
@@ -152,7 +152,7 @@
     "file": "data/1449/report.md",
     "date": "2026-06-08",
     "quote": {
-      "price": 14.85,
+      "price": 14.9,
       "asOf": "2026-07-06",
       "prevClose": 14.55
     },
