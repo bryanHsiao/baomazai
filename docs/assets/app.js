@@ -267,6 +267,10 @@
 
   function renderReport(md, box, meta) {
     if (typeof marked === "undefined") { box.textContent = md; return; }
+    // 報告內的半形 ~ 一律作為數字區間分隔（如 60~100、2026~2027），
+    // 但 GFM 會把成對的 ~ 解讀成刪除線、把中間文字劃掉。
+    // 轉成全形 ～（中文區間的正確寫法，且不觸發刪除線）根治此問題。
+    md = md.replace(/~/g, "～");
     marked.setOptions({ breaks: false, gfm: true });
     box.innerHTML = marked.parse(md);
 
