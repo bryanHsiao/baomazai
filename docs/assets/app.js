@@ -197,8 +197,10 @@
             '</div>' +
             '<div class="file__tag">' + r.tagline + '</div>' +
             '<div class="file__stats">' + stats + '</div>' +
-            asofHtml +
-            '<span class="file__go">閱讀完整查證 <span class="arrow">→</span></span>' +
+            '<div class="file__foot">' +
+              asofHtml +
+              '<span class="file__go">閱讀完整查證 <span class="arrow">→</span></span>' +
+            '</div>' +
           '</div>' +
         '</div>';
 
