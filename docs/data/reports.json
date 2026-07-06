@@ -246,5 +246,145 @@
         { "src": "data/3293/intel/inquiry-2026-07-04.png", "caption": "LINE 詢問：看鈊象能參與除息嗎？" }
       ]
     }
+  },
+  {
+    "id": "8261",
+    "ticker": "8261",
+    "name": "富鼎先進電子",
+    "short": "富鼎",
+    "sector": "功率半導體（MOSFET）",
+    "verdict": "中性偏保守",
+    "verdictTone": "neu",
+    "tagline": "陳泰銘（國巨）入主的功率半導體廠，體質健康、方向正確；但真正撐獲利的是散熱風扇＋AI 電源而非「MOSFET 缺貨」，7/6 漲停後 PER 近 60、殖利率僅 1.4%，估值無安全邊際。",
+    "price": "320",
+    "priceMove": "up",
+    "priceNote": "MOSFET·漲停",
+    "stats": [
+      { "k": "股價", "v": "352" },
+      { "k": "本益比", "v": "≈60" },
+      { "k": "PBR", "v": "6.8" },
+      { "k": "殖利率", "v": "≈1.4%" }
+    ],
+    "file": "data/8261/report.md",
+    "date": "2026-07-04",
+    "quote": { "price": 352, "asOf": "2026-07-06", "prevClose": 320 },
+    "intel": {
+      "note": "data/8261/intel/intel.md",
+      "tips": [
+        {
+          "date": "2026-07-05",
+          "source": "孟恭 podcast",
+          "headline": "富鼎為功率半導體領漲股，跌回要接",
+          "summary": "聽完孟恭 podcast 後決定「禮拜一再把富鼎買回來一部分」，把富鼎定位為功率半導體領漲股、策略是拉回承接（同集提到合晶不太敢追、虹揚-KY 有轉型急單）。",
+          "verify": "方向可參考——富鼎體質健康、散熱與 AI 電源雙成長軸真實。但 7/6 大漲後 PER 近 60、PBR 近 7、殖利率僅 1.4%，「跌回要接」的關鍵是「跌回」，當下是題材噴出、近漲停，缺乏安全邊際。"
+        },
+        {
+          "date": "2026-07-04",
+          "source": "股癌 podcast／社群",
+          "headline": "股癌點名 MOSFET 缺貨，三雄：富鼎、大中、尼克森",
+          "summary": "股癌點名 MOSFET 產業缺貨，「三雄」為富鼎 8261、大中 6435、尼克森 3317；另提強茂 2481 也有 MOSFET 產品線並打入 GB200 供應鏈。",
+          "images": [
+            { "src": "data/8261/intel/mosfet-tip-2026-07-05.jpg", "caption": "股癌點名 MOSFET 缺貨族群（富鼎為三雄之一）" }
+          ],
+          "verify": "產業缺貨漲價為真（A 級），但富鼎目前實際獲利成長來自散熱風扇（DC FAN 年增 287%、占營收 36%）與 AI 伺服器電源，而非「MOSFET 缺貨漲價」——法說反稱中低壓 MOSFET 是殺價的「殺戮市場」。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "6435",
+    "ticker": "6435",
+    "name": "大中積體電路",
+    "short": "大中",
+    "sector": "功率半導體（上櫃）",
+    "verdict": "中性偏保守",
+    "verdictTone": "neu",
+    "tagline": "茂達分割、泛國巨集團的 fabless 功率廠；AI 伺服器轉型成功、獲利創高是真的，但主力低壓 MOSFET 非缺貨最兇段（間接受惠），7/6 漲停後 PER 約 39、PBR 約 8，小型高價股波動大。",
+    "price": "382",
+    "priceMove": "up",
+    "priceNote": "MOSFET·漲停",
+    "stats": [
+      { "k": "股價", "v": "420" },
+      { "k": "本益比", "v": "≈39" },
+      { "k": "PBR", "v": "≈8" },
+      { "k": "殖利率", "v": "≈3.9%" }
+    ],
+    "file": "data/6435/report.md",
+    "date": "2026-07-04",
+    "quote": { "price": 420, "asOf": "2026-07-06", "prevClose": 382 },
+    "intel": {
+      "received": "2026-07-04",
+      "source": "股癌 podcast／社群",
+      "headline": "股癌點名 MOSFET 缺貨，三雄之一：大中 6435",
+      "summary": "股癌點名 MOSFET 產業缺貨，「三雄」為富鼎 8261、大中 6435、尼克森 3317。",
+      "note": "data/6435/intel/intel.md",
+      "images": [
+        { "src": "data/6435/intel/mosfet-tip-2026-07-05.jpg", "caption": "股癌點名 MOSFET 缺貨族群（大中為三雄之一）" }
+      ]
+    }
+  },
+  {
+    "id": "3317",
+    "ticker": "3317",
+    "name": "尼克森微電子",
+    "short": "尼克森",
+    "sector": "功率半導體（上櫃）",
+    "verdict": "觀望 / 不宜追高",
+    "verdictTone": "neg",
+    "tagline": "四檔 MOSFET 裡基本面最弱：泛 PC／消費為主、2026 年 5 月營收年減 13% 與缺貨題材背離、SiC 尚未貢獻；7/6 漲停後 PER 逾 50、殖利率不到 0.5%，追高風險最高。",
+    "price": "96.2",
+    "priceMove": "up",
+    "priceNote": "MOSFET·漲停",
+    "stats": [
+      { "k": "股價", "v": "105.5" },
+      { "k": "本益比", "v": ">50" },
+      { "k": "PBR", "v": "≈2.6" },
+      { "k": "殖利率", "v": "≈0.5%" }
+    ],
+    "file": "data/3317/report.md",
+    "date": "2026-07-04",
+    "quote": { "price": 105.5, "asOf": "2026-07-06", "prevClose": 96.2 },
+    "intel": {
+      "received": "2026-07-04",
+      "source": "股癌 podcast／社群",
+      "headline": "股癌點名 MOSFET 缺貨，三雄之一：尼克森 3317",
+      "summary": "股癌點名 MOSFET 產業缺貨，「三雄」為富鼎 8261、大中 6435、尼克森 3317。",
+      "note": "data/3317/intel/intel.md",
+      "images": [
+        { "src": "data/3317/intel/mosfet-tip-2026-07-05.jpg", "caption": "股癌點名 MOSFET 缺貨族群（尼克森為三雄之一）" }
+      ]
+    }
+  },
+  {
+    "id": "2481",
+    "ticker": "2481",
+    "name": "強茂",
+    "short": "強茂",
+    "sector": "分立元件（IDM）",
+    "verdict": "中性偏保守",
+    "verdictTone": "neu",
+    "tagline": "分立元件老牌 IDM 大廠，四檔中體質最扎實、估值最合理（PER 約 24、PBR 約 1.8）；但「打入 GB200 供應鏈」被誇大（MOSFET 僅約 15~20%），真正利多是安世（Nexperia）事件轉單。",
+    "price": "207",
+    "priceMove": "up",
+    "priceNote": "MOSFET·漲停",
+    "stats": [
+      { "k": "股價", "v": "227.5" },
+      { "k": "本益比", "v": "≈24" },
+      { "k": "PBR", "v": "≈1.8" },
+      { "k": "殖利率", "v": "≈2.6%" }
+    ],
+    "file": "data/2481/report.md",
+    "date": "2026-07-04",
+    "quote": { "price": 227.5, "asOf": "2026-07-06", "prevClose": 207 },
+    "intel": {
+      "received": "2026-07-04",
+      "source": "股癌 podcast／社群",
+      "headline": "強茂有 MOSFET 產品線，已打入輝達 GB200 供應鏈",
+      "summary": "股癌點名 MOSFET 缺貨，提到強茂 2481 也有 MOSFET 產品線，且已打入輝達 GB200 供應鏈。",
+      "note": "data/2481/intel/intel.md",
+      "images": [
+        { "src": "data/2481/intel/mosfet-tip-2026-07-05.jpg", "caption": "股癌：強茂有 MOSFET 產品線並打入 GB200 供應鏈" }
+      ]
+    }
   }
 ]
