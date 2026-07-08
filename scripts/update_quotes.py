@@ -46,15 +46,14 @@ def fetch_symbol(symbol):
         return None
     tw = datetime.timezone(datetime.timedelta(hours=8))  # 台股時區固定 +8
     ts = meta.get("regularMarketTime")
-    if ts:
-        # regularMarketTime 是 epoch 秒 → 轉台北當地日期
-        asof = datetime.datetime.fromtimestamp(int(ts), tw).date().isoformat()
-    else:
-        asof = datetime.datetime.now(tw).date().isoformat()
+    # regularMarketTime 是報價當下 epoch 秒 → 轉台北當地時間
+    dt = datetime.datetime.fromtimestamp(int(ts), tw) if ts else datetime.datetime.now(tw)
+    asof = dt.date().isoformat()             # 給新鮮度判斷用（僅日期）
+    asof_time = dt.strftime("%Y/%m/%d %H:%M")  # 給畫面顯示「報價時間」
     prev = meta.get("chartPreviousClose")
     if prev is None:
         prev = meta.get("previousClose")
-    return {"price": numify(price), "asOf": asof, "prevClose": numify(prev)}
+    return {"price": numify(price), "asOf": asof, "asOfTime": asof_time, "prevClose": numify(prev)}
 
 
 def get_quote(ticker):

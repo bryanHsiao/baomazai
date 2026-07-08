@@ -158,6 +158,7 @@
       var asofHtml = fr
         ? '<div class="file__asof file__asof--' + fr.cls + '">' +
             '<span class="asof-dot"></span>' + fr.txt +
+            (q.asOfTime ? ' <span class="asof-time mono">· ' + q.asOfTime + '</span>' : "") +
           '</div>'
         : "";
 
@@ -330,7 +331,8 @@
       '<div class="scorecard__head">' +
         '<span class="scorecard__label">績效追蹤 · SCORECARD</span>' +
         '<span class="scorecard__asof scorecard__asof--' + fr.cls + '">' +
-          '<span class="asof-dot"></span>' + fr.txt + '</span>' +
+          '<span class="asof-dot"></span>' + fr.txt +
+          (meta.quote.asOfTime ? ' · ' + meta.quote.asOfTime : "") + '</span>' +
       '</div>' +
       '<div class="scorecard__grid">' +
         '<div class="sc-cell"><span class="sc-k">基準價</span>' +

@@ -413,6 +413,7 @@ a { color: inherit; text-decoration: none; }
 .file__asof--today  { color: var(--fall); }
 .file__asof--recent { color: var(--muted); }
 .file__asof--stale  { color: var(--gold); font-weight: 600; }
+.asof-time { color: var(--muted); font-weight: 400; font-size: 10.5px; letter-spacing: .02em; }
 
 /* intel — original tip / rumour */
 .intel { border: 1px solid var(--line); background: var(--paper-2); margin: 0 0 12px; }
