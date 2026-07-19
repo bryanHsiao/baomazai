@@ -186,6 +186,7 @@ a { color: inherit; text-decoration: none; }
 .tip-perf.perf--up b   { color: var(--rise); }
 .tip-perf.perf--down b { color: var(--fall); }
 .tip-perf .tip-days { color: var(--muted); font-size: 11.5px; }
+.tip-perf .tip-base { color: var(--muted); font-weight: 400; }
 .file__quote {
   font-family: var(--serif); font-weight: 700;
   font-size: clamp(21px, 2.6vw, 29px); line-height: 1.32;

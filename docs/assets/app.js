@@ -169,7 +169,8 @@
       if (pf) {
         perfHtml = pf.days <= 0
           ? '<span class="tip-perf perf--flat">' + (isHold ? '研究當日 · 追蹤中' : '情報當日 · 追蹤中') + '</span>'
-          : '<span class="tip-perf perf--' + pf.dir + '">自 ' + mmdd(r.date) + ' <b>' + pf.retStr + '</b>' +
+          : '<span class="tip-perf perf--' + pf.dir + '">自 ' + mmdd(r.date) +
+              ' <span class="tip-base mono">基準 ' + r.price + '</span> <b>' + pf.retStr + '</b>' +
               (pf.dir === "up" ? " ▲" : pf.dir === "down" ? " ▼" : "") +
               ' <span class="tip-days">· ' + pf.days + '天</span></span>';
       }
