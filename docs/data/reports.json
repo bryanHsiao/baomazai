@@ -32,10 +32,10 @@
     "file": "data/1718/report.md",
     "date": "2026-06-25",
     "quote": {
-      "price": 9.73,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 10.25
+      "price": 9.2,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 9.73
     },
     "intel": {
       "note": "data/1718/intel/intel.md",
@@ -102,10 +102,10 @@
     "file": "data/6226/report.md",
     "date": "2026-06-26",
     "quote": {
-      "price": 20.5,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 18.65
+      "price": 22.55,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 20.5
     },
     "intel": {
       "received": "2026-06-26",
@@ -154,10 +154,10 @@
     "file": "data/1449/report.md",
     "date": "2026-06-08",
     "quote": {
-      "price": 12.25,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 12.7
+      "price": 11.8,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 12.25
     },
     "intel": {
       "received": "2026-06-08",
@@ -236,10 +236,10 @@
     "file": "data/3029/report.md",
     "date": "2026-06-01",
     "quote": {
-      "price": 101.5,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 104
+      "price": 99.3,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 101.5
     },
     "intel": {
       "received": "2026-06-01",
@@ -288,10 +288,10 @@
     "file": "data/3147/report.md",
     "date": "2026-06-01",
     "quote": {
-      "price": 224,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 230
+      "price": 209.5,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 224
     },
     "intel": {
       "received": "2026-06-01",
@@ -340,10 +340,10 @@
     "file": "data/6112/report.md",
     "date": "2026-06-01",
     "quote": {
-      "price": 39.5,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 40.55
+      "price": 38.05,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 39.5
     },
     "intel": {
       "received": "2026-06-01",
@@ -392,10 +392,10 @@
     "file": "data/3293/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 723,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 719
+      "price": 734,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 723
     },
     "intel": {
       "received": "2026-07-04",
@@ -444,10 +444,10 @@
     "file": "data/8261/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 195,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 216.5
+      "price": 175.5,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 195
     },
     "intel": {
       "note": "data/8261/intel/intel.md",
@@ -508,10 +508,10 @@
     "file": "data/6435/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 235,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 260
+      "price": 220,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 235
     },
     "intel": {
       "received": "2026-07-04",
@@ -560,10 +560,10 @@
     "file": "data/3317/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 66.9,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 74.3
+      "price": 62.6,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 66.9
     },
     "intel": {
       "received": "2026-07-04",
@@ -612,10 +612,10 @@
     "file": "data/2481/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 124.5,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 137
+      "price": 112.5,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 124.5
     },
     "intel": {
       "received": "2026-07-04",
@@ -664,10 +664,10 @@
     "file": "data/6573/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 16.75,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 18.3
+      "price": 16.55,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 16.75
     },
     "intel": {
       "received": "2026-07-04",
@@ -712,10 +712,10 @@
     "file": "data/6239/report.md",
     "date": "2026-07-06",
     "quote": {
-      "price": 251.5,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 279
+      "price": 233,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 251.5
     },
     "intel": {
       "received": "2026-07-06",
@@ -759,10 +759,10 @@
     "file": "data/2368/report.md",
     "date": "2026-07-06",
     "quote": {
-      "price": 809,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 895
+      "price": 729,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 809
     },
     "intel": {
       "received": "2026-07-06",
@@ -806,10 +806,10 @@
     "file": "data/8064/report.md",
     "date": "2026-07-06",
     "quote": {
-      "price": 94.1,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 104.5
+      "price": 87.8,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 94.1
     },
     "intel": {
       "received": "2026-07-06",
@@ -852,10 +852,10 @@
     "file": "data/3324/report.md",
     "date": "2026-07-08",
     "quote": {
-      "price": 870,
-      "asOf": "2026-07-28",
-      "asOfTime": "2026/07/28 13:30",
-      "prevClose": 930
+      "price": 855,
+      "asOf": "2026-07-29",
+      "asOfTime": "2026/07/29 13:30",
+      "prevClose": 870
     },
     "intel": {
       "received": "2026-07-08",
