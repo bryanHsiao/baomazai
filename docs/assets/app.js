@@ -443,11 +443,130 @@
   }
 
   /* ---------------------------------------------------------
+     HEDGE WATCH (避險觀察站)
+     --------------------------------------------------------- */
+  function initHedge() {
+    var today = document.getElementById("today");
+    if (today) today.textContent = fmtDate(new Date());
+
+    // reuse the ticker tape for visual consistency
+    loadReports().then(function (reports) {
+      reports.sort(function (a, b) { return latestTipDate(b).localeCompare(latestTipDate(a)); });
+      buildTape(reports);
+    }).catch(function () {});
+
+    fetch("data/hedge-events.json", { cache: "no-cache" }).then(function (r) {
+      if (!r.ok) throw new Error("hedge-events.json " + r.status);
+      return r.json();
+    }).then(function (events) {
+      events.sort(function (a, b) { return (b.id || "").localeCompare(a.id || ""); });
+      buildHedge(events);
+    }).catch(function (err) {
+      var box = document.getElementById("hedge-list");
+      if (box) box.innerHTML =
+        '<p style="font-family:var(--mono);color:var(--muted);padding:40px 0">' +
+        '無法載入避險紀錄（' + err.message + '）。請透過 GitHub Pages 或本機伺服器開啟。</p>';
+    });
+  }
+
+  function moveClass(pct) {
+    var s = String(pct || "");
+    if (s.indexOf("-") === 0) return "down";
+    if (s.indexOf("+") === 0) return "up";
+    return "";
+  }
+
+  function buildHedge(events) {
+    var wrap = document.getElementById("hedge-list");
+    if (!wrap) return;
+    wrap.innerHTML = "";
+
+    events.forEach(function (e) {
+      var m = e.market || {};
+      var hedgeRows = (e.hedges || []).map(function (h) {
+        return '<tr>' +
+          '<td><span class="mono hedge-tk">' + h.ticker + '</span> ' + h.name + '</td>' +
+          '<td class="mono ' + moveClass(h.dropPct) + '">' + h.dropPct + '</td>' +
+          '<td class="mono ' + moveClass(h.worstDay) + '">' + h.worstDay + '</td>' +
+          '<td class="hedge-note">' + (h.note || "") + '</td>' +
+          '</tr>';
+      }).join("");
+
+      var pfRows = (e.portfolios || []).map(function (p) {
+        return '<tr' + (p.highlight ? ' class="is-hi"' : '') + '>' +
+          '<td>' + p.mix + '</td>' +
+          '<td class="mono ' + moveClass(p.loss) + '">' + p.loss + '</td>' +
+          '<td class="mono">' + (p.cushion || "") + '</td>' +
+          '</tr>';
+      }).join("");
+
+      var notes = (e.notes || []).map(function (n) {
+        return '<li>' + n + '</li>';
+      }).join("");
+
+      wrap.innerHTML +=
+        '<article class="hedge-ev">' +
+          '<div class="hedge-ev__bar">' +
+            '<span class="hedge-ev__grade grade--' + (e.gradeTone || "neu") + '">' + (e.grade || "") + '</span>' +
+            '<span class="hedge-ev__type">' + (e.type || "") + '</span>' +
+            '<span class="hedge-ev__period mono">' + (e.period || "") + '</span>' +
+          '</div>' +
+          '<h2 class="hedge-ev__title">' + e.title + '</h2>' +
+          (e.headline ? '<p class="hedge-ev__lead">「' + e.headline + '」</p>' : "") +
+
+          '<div class="hedge-cards">' +
+            '<div class="hedge-card hedge-card--mkt">' +
+              '<div class="hedge-card__k">' + m.name + '</div>' +
+              '<div class="hedge-card__big mono down">' + m.dropPct + '</div>' +
+              '<div class="hedge-card__sub">' + m.start + '（' + m.startDate + '）→ ' + m.trough + '（' + m.troughDate + ' 谷底）</div>' +
+              '<div class="hedge-card__sub">最慘：' + m.worstDay + '｜' + m.reboundDate + ' 反彈 ' + m.reboundPct + '</div>' +
+            '</div>' +
+            (e.hedges || []).map(function (h) {
+              return '<div class="hedge-card">' +
+                '<div class="hedge-card__k"><span class="mono hedge-tk">' + h.ticker + '</span> ' + h.name + '</div>' +
+                '<div class="hedge-card__big mono ' + (moveClass(h.dropPct) || "flat") + '">' + h.dropPct + '</div>' +
+                '<div class="hedge-card__sub">下跌期間幾乎持平</div>' +
+                '<div class="hedge-card__sub">最慘日 <span class="' + moveClass(h.worstDay) + '">' + h.worstDay + '</span></div>' +
+                '</div>';
+            }).join("") +
+            '<div class="hedge-card hedge-card--fx">' +
+              '<div class="hedge-card__k">' + e.usd.name + '</div>' +
+              '<div class="hedge-card__big mono ' + moveClass(e.usd.pct) + '">' + e.usd.pct + '</div>' +
+              '<div class="hedge-card__sub">' + e.usd.start + ' → ' + e.usd.end + '</div>' +
+              '<div class="hedge-card__sub">' + e.usd.note + '</div>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="hedge-tbl">' +
+            '<div class="hedge-tbl__cap">下跌期間各標的表現（' + m.startDate + ' → ' + m.troughDate + ' 谷底）</div>' +
+            '<div class="table-wrap"><table>' +
+              '<thead><tr><th>標的</th><th>下跌期間</th><th>最慘日</th><th>說明</th></tr></thead>' +
+              '<tbody>' + hedgeRows + '</tbody>' +
+            '</table></div>' +
+          '</div>' +
+
+          '<div class="hedge-tbl">' +
+            '<div class="hedge-tbl__cap">若搭配美債，組合少跌多少？（同期間試算）</div>' +
+            '<div class="table-wrap"><table>' +
+              '<thead><tr><th>股債配置</th><th>這波損益</th><th>相對全股</th></tr></thead>' +
+              '<tbody>' + pfRows + '</tbody>' +
+            '</table></div>' +
+          '</div>' +
+
+          '<div class="hedge-verdict"><span class="hedge-verdict__k mono">判讀</span>' + e.verdict + '</div>' +
+          (notes ? '<ul class="hedge-notes">' + notes + '</ul>' : "") +
+          (e.source ? '<p class="hedge-src">資料來源：' + e.source + '</p>' : "") +
+        '</article>';
+    });
+  }
+
+  /* ---------------------------------------------------------
      BOOT
      --------------------------------------------------------- */
   function boot() {
     if (document.getElementById("files")) initIndex();
     if (document.getElementById("report")) initReport();
+    if (document.getElementById("hedge-list")) initHedge();
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);

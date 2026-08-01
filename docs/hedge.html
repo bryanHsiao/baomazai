@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>避險觀察站 · 個股研究室</title>
+<meta name="description" content="股債防禦力追蹤 — 每逢台股明顯下跌，記錄防禦部位（美債等）的表現，驗證資產配置的避險效果。僅供參考，非投資建議。">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- utility bar -->
+  <div class="util">
+    <div class="util__row">
+      <span class="util__brand">個股研究室 · <b>RESEARCH&nbsp;DESK</b></span>
+      <span class="util__meta">
+        <span>資產配置觀察</span>
+        <span><span class="dot">●</span> 僅供參考 · 非投資建議</span>
+        <span id="today">—</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ticker tape -->
+  <div class="tape">
+    <div class="tape__track" id="tape"></div>
+  </div>
+
+  <main class="wrap">
+
+    <!-- sub navigation -->
+    <nav class="subnav">
+      <a href="index.html" class="subnav__tab">📮 情報追蹤</a>
+      <a href="hedge.html" class="subnav__tab is-active">🛡 避險觀察站</a>
+    </nav>
+
+    <!-- masthead -->
+    <header class="masthead">
+      <div class="masthead__kick">避險觀察站 &nbsp;/&nbsp; Hedge Watch</div>
+      <h1 class="masthead__title">
+        股債防禦力
+        <span class="en">HEDGE&nbsp;WATCH</span>
+      </h1>
+      <div class="masthead__sub">
+        <span class="lead">報馬仔追蹤「明牌準不準」，避險觀察站追蹤「保險有沒有效」。</span>
+        <span>每逢台股明顯下跌，記錄防禦部位（美債等）當下的表現，用實際數據驗證資產配置的減震效果。</span>
+      </div>
+    </header>
+
+    <!-- hedge events -->
+    <div class="slabel">事件紀錄 &nbsp;·&nbsp; <b>DRAWDOWN LOG</b></div>
+    <section class="hedge-list" id="hedge-list">
+      <!-- populated by app.js -->
+    </section>
+
+    <!-- disclaimer -->
+    <section class="ribbon">
+      <span class="ribbon__mark">免責聲明</span>
+      <p>
+        本頁為公開市場資料之整理與教育性分析，<strong>非個人化投資建議</strong>，亦不構成任何證券之買賣要約。
+        單一事件不代表長期規律，股債相關性會隨環境改變；投資決策與風險請自行判斷與承擔。
+      </p>
+    </section>
+
+    <!-- footer -->
+    <footer class="foot">
+      <span>© 2026 個股研究室 · 資產配置觀察</span>
+      <span>資料來源：<a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a> 日收盤價</span>
+    </footer>
+
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
