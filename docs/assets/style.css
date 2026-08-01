@@ -589,7 +589,7 @@ a { color: inherit; text-decoration: none; }
   /* not enough room beside the big title — drop back into flow, stay compact (not full-width).
      use position:relative (NOT static) so the absolute thumb keeps THIS as its offset parent
      instead of ballooning against .masthead */
-  .viewtoggle { position: relative; margin: 4px 0 20px; }
+  .viewtoggle { position: relative; top: auto; right: auto; margin: 4px 0 20px; }
   .masthead__kick { padding-right: 0; }   /* toggle no longer floats → rule can span full width */
 }
 @media (max-width: 620px) {
