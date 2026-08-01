@@ -504,6 +504,42 @@
         return '<li>' + n + '</li>';
       }).join("");
 
+      var timingHtml = "";
+      var t = e.timing;
+      if (t) {
+        var scen = (t.scenarios || []).map(function (s) {
+          return '<div class="tim-card tim-card--' + (s.tone || "neu") + '">' +
+            '<div class="tim-card__name">' + s.name + '</div>' +
+            '<div class="tim-card__path">' + s.path + '</div>' +
+            '<div class="tim-card__res mono">' + s.result + ' <b>' + s.pct + '</b></div>' +
+            '</div>';
+        }).join("");
+        var sen = t.sentiment || {};
+        var quoteHtml = (sen.quotes || []).map(function (q) {
+          return '<span class="tim-quote">「' + q + '」</span>';
+        }).join("");
+        var senImgs = (sen.images || []).map(shotHtml).join("");
+        timingHtml =
+          '<div class="tim">' +
+            '<div class="tim__head">🎯 擇時代價 · 出清 vs 續抱</div>' +
+            '<div class="tim__inst"><span class="mono hedge-tk">' + t.instrument + '</span>　' +
+              t.peakDate + ' ' + t.peak + ' → ' + t.troughDate + ' 谷底 ' + t.trough +
+              ' <span class="down">（' + t.dropPct + '）</span> → ' + t.reboundDate + ' ' + t.rebound +
+              ' <span class="up">（' + t.reboundPct + '）</span></div>' +
+            '<div class="tim-cards">' + scen + '</div>' +
+            '<div class="tim-sent">' +
+              '<div class="tim-sent__k">當時市場在喊什麼</div>' +
+              '<div class="tim-sent__quotes">' + quoteHtml + '</div>' +
+              (senImgs ? '<div class="intel__shots">' + senImgs + '</div>' : "") +
+              (sen.context ? '<div class="tim-sent__ctx">' + sen.context + '</div>' : "") +
+              (sen.outcome ? '<div class="tim-sent__out"><b>結果：</b>' + sen.outcome + '</div>' : "") +
+            '</div>' +
+            (t.verdict ? '<div class="hedge-verdict"><span class="hedge-verdict__k mono">判讀</span>' + t.verdict + '</div>' : "") +
+            (t.lesson ? '<p class="tim-lesson">' + t.lesson + '</p>' : "") +
+            (t.source ? '<p class="hedge-src">' + t.source + '</p>' : "") +
+          '</div>';
+      }
+
       wrap.innerHTML +=
         '<article class="hedge-ev">' +
           '<div class="hedge-ev__bar">' +
@@ -555,6 +591,7 @@
 
           '<div class="hedge-verdict"><span class="hedge-verdict__k mono">判讀</span>' + e.verdict + '</div>' +
           (notes ? '<ul class="hedge-notes">' + notes + '</ul>' : "") +
+          timingHtml +
           (e.source ? '<p class="hedge-src">資料來源：' + e.source + '</p>' : "") +
         '</article>';
     });

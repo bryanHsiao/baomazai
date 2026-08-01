@@ -25,6 +25,11 @@ docs/data/*/intel/*.jpg
 docs/data/*/intel/*.jpeg
 docs/data/*/intel/*.png
 docs/data/*/intel/*.gif
+# 避險/擇時：市場喊話截圖（含他人公開帳號/頭像，永不上傳，僅本地存證）
+docs/data/hedge/**/*.png
+docs/data/hedge/**/*.jpg
+docs/data/hedge/**/*.jpeg
+
 # 已去敏、確認可公開的情報截圖（例外放行）
 !docs/data/1449/intel/LINE_20260703_173105.jpg
 !docs/data/1449/intel/LINE_20260703_173128.jpg
@@ -35,3 +40,6 @@ docs/data/*/intel/*.gif
 !docs/data/6112/intel/tip-2026-06-01.png
 !docs/data/3293/intel/inquiry-2026-07-04.png
 !docs/data/3324/intel/tip-2026-07-08.png
+# 已去識別化（無帳號/頭像）、可公開的市場喊話截圖
+!docs/data/hedge/2026-07-28/call-headtop.png
+!docs/data/hedge/2026-07-28/call-assetshrink.png
