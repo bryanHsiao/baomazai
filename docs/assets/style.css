@@ -631,11 +631,38 @@ a { color: inherit; text-decoration: none; }
 .tim-sent__out b { color: #E0A43B; }
 .tim-lesson { margin: 14px 0 0; font-size: 13px; color: var(--ink-soft); line-height: 1.75; padding: 12px 14px; background: var(--paper); border-left: 3px solid var(--gold); }
 
+/* insight / myth-buster cards */
+.insight-list { display: flex; flex-direction: column; gap: 24px; margin-top: 8px; }
+.ins { border: 1px solid var(--line); background: var(--surface); padding: 22px 20px 18px; border-top: 3px solid var(--gold); }
+.ins__tag { display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .1em; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+.ins__myth { font-family: var(--serif); font-size: 18px; line-height: 1.5; color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(200,54,43,.5); margin-bottom: 10px; }
+.ins__real { font-family: var(--serif); font-size: 19px; line-height: 1.5; color: var(--ink); font-weight: 600; margin-bottom: 18px; }
+.ins__x { display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 700; color: var(--rise); margin-right: 8px; text-decoration: none; letter-spacing: .04em; }
+.ins__c { display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 700; color: var(--fall); margin-right: 8px; letter-spacing: .04em; }
+.ins-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 12px; }
+.ins-stat { border: 1px solid var(--line); border-radius: 3px; padding: 14px 16px; background: var(--paper); text-align: center; }
+.ins-stat__v { font-size: 24px; font-weight: 700; line-height: 1; margin-bottom: 6px; }
+.ins-stat--pos .ins-stat__v { color: var(--rise); }
+.ins-stat--neg .ins-stat__v { color: var(--muted); }
+.ins-stat__k { font-size: 11.5px; color: var(--muted); }
+.ins__period { font-size: 11px; color: var(--muted); letter-spacing: .02em; margin-bottom: 16px; }
+.ins__whyk { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: .04em; }
+.ins__why { margin: 0 0 12px; padding-left: 18px; }
+.ins__why li { font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 6px; }
+.ins__why li::marker { color: var(--gold); }
+.ins__nuance { font-size: 12.5px; color: var(--muted); line-height: 1.7; margin: 0 0 14px; padding: 12px 14px; background: var(--paper); border-left: 3px solid var(--line); }
+.ins__take { padding: 13px 16px; background: var(--plate); border-radius: 3px; font-size: 13.5px; line-height: 1.7; color: #E9E7DD; }
+.ins__take-k { display: inline-block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #E0A43B; margin-right: 8px; font-weight: 700; }
+.ins .hedge-src { margin-top: 14px; }
+.ins .hedge-src a { color: var(--gold); border-bottom: 1px solid rgba(169,130,47,.4); }
+
 @media (max-width: 620px) {
   .hedge-ev { padding: 20px 16px 16px; }
   .hedge-ev__title { font-size: 20px; }
   .hedge-ev__period { margin-left: 0; width: 100%; }
   .tim-quote { font-size: 15px; }
+  .ins__myth { font-size: 16px; }
+  .ins__real { font-size: 17px; }
 }
 
 /* reduced motion */

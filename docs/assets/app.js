@@ -467,6 +467,41 @@
         '<p style="font-family:var(--mono);color:var(--muted);padding:40px 0">' +
         '無法載入避險紀錄（' + err.message + '）。請透過 GitHub Pages 或本機伺服器開啟。</p>';
     });
+
+    fetch("data/hedge-insights.json", { cache: "no-cache" }).then(function (r) {
+      if (!r.ok) throw new Error("hedge-insights.json " + r.status);
+      return r.json();
+    }).then(buildInsights).catch(function () {});
+  }
+
+  function buildInsights(items) {
+    var wrap = document.getElementById("insight-list");
+    if (!wrap) return;
+    wrap.innerHTML = "";
+    (items || []).forEach(function (n) {
+      var stats = (n.stats || []).map(function (s) {
+        return '<div class="ins-stat ins-stat--' + (s.tone || "neu") + '">' +
+          '<div class="ins-stat__v mono">' + s.v + '</div>' +
+          '<div class="ins-stat__k">' + s.k + '</div>' +
+          '</div>';
+      }).join("");
+      var why = (n.why || []).map(function (w) { return '<li>' + w + '</li>'; }).join("");
+      var src = n.sourceUrl
+        ? '<a href="' + n.sourceUrl + '" target="_blank" rel="noopener">' + n.source + ' ↗</a>'
+        : (n.source || "");
+      wrap.innerHTML +=
+        '<article class="ins">' +
+          '<div class="ins__tag">' + (n.tag || "迷思破解") + '</div>' +
+          '<div class="ins__myth"><span class="ins__x">✕ 迷思</span>' + n.myth + '</div>' +
+          '<div class="ins__real"><span class="ins__c">✓ 實際</span>' + n.reality + '</div>' +
+          (stats ? '<div class="ins-stats">' + stats + '</div>' : "") +
+          (n.period ? '<div class="ins__period mono">' + n.period + '</div>' : "") +
+          (why ? '<div class="ins__whyk">為什麼？</div><ul class="ins__why">' + why + '</ul>' : "") +
+          (n.nuance ? '<p class="ins__nuance">' + n.nuance + '</p>' : "") +
+          (n.takeaway ? '<div class="ins__take"><span class="ins__take-k mono">結論</span>' + n.takeaway + '</div>' : "") +
+          (src ? '<p class="hedge-src">來源：' + src + '</p>' : "") +
+        '</article>';
+    });
   }
 
   function moveClass(pct) {
