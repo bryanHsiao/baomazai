@@ -556,7 +556,7 @@
         var senImgs = (sen.images || []).map(shotHtml).join("");
         timingHtml =
           '<div class="tim">' +
-            '<div class="tim__head">🎯 擇時代價 · 出清 vs 續抱</div>' +
+            '<div class="tim__head">📈 ETF 長期持有驗證 · 出清 vs 續抱</div>' +
             '<div class="tim__inst"><span class="mono hedge-tk">' + t.instrument + '</span>　' +
               t.peakDate + ' ' + t.peak + ' → ' + t.troughDate + ' 谷底 ' + t.trough +
               ' <span class="down">（' + t.dropPct + '）</span> → ' + t.reboundDate + ' ' + t.rebound +
@@ -585,6 +585,7 @@
           '<h2 class="hedge-ev__title">' + e.title + '</h2>' +
           (e.headline ? '<p class="hedge-ev__lead">「' + e.headline + '」</p>' : "") +
 
+          '<div class="tim__head">🛡 避險觀察 · 股債防禦力</div>' +
           '<div class="hedge-cards">' +
             '<div class="hedge-card hedge-card--mkt">' +
               '<div class="hedge-card__k">' + m.name + '</div>' +
