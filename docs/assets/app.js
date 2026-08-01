@@ -584,6 +584,7 @@
           '</div>' +
           '<h2 class="hedge-ev__title">' + e.title + '</h2>' +
           (e.headline ? '<p class="hedge-ev__lead">「' + e.headline + '」</p>' : "") +
+          (e.correction ? '<div class="hedge-correction"><span class="hedge-correction__k mono">✎ 已修正</span>' + e.correction + '</div>' : "") +
 
           '<div class="tim__head">🛡 避險觀察 · 股債防禦力</div>' +
           '<div class="hedge-cards">' +
