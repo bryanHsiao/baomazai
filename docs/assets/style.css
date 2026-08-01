@@ -554,14 +554,14 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================
    SUB-NAV + HEDGE WATCH（避險觀察站）
    ============================================================ */
-.subnav { display: flex; gap: 8px; margin: 26px 0 6px; flex-wrap: wrap; }
-.subnav__tab {
-  font-family: var(--mono); font-size: 12.5px; letter-spacing: .04em;
-  color: var(--muted); text-decoration: none; padding: 7px 14px;
-  border: 1px solid var(--line); border-radius: 999px; transition: all .2s;
+/* site nav in the top utility bar */
+.util__nav { display: flex; gap: 20px; }
+.util__nav a {
+  color: #8E8D84; text-decoration: none; letter-spacing: .1em; transition: color .2s;
 }
-.subnav__tab:hover { color: var(--ink); border-color: var(--ink-soft); }
-.subnav__tab.is-active { color: #E9E7DD; background: var(--plate); border-color: var(--plate); }
+.util__nav a:hover { color: #F2F0E7; }
+.util__nav a.is-active { color: #F2F0E7; }
+.util__nav a.is-active::before { content: "●"; color: var(--rise); font-size: 8px; margin-right: 6px; vertical-align: middle; }
 
 .hedge-list { display: flex; flex-direction: column; gap: 30px; margin-top: 8px; }
 .hedge-ev { border: 1px solid var(--line); background: var(--surface); padding: 24px 22px 20px; }
