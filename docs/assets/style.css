@@ -706,7 +706,26 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* reduced motion */
+/* ============================================================
+   SOFT PAGE TRANSITIONS（頁面之間柔和交叉淡入）
+   ============================================================ */
+@view-transition { navigation: auto; }
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: .5s;
+  animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+/* fallback：不支援跨頁 View Transition 的瀏覽器，改用整頁淡入 */
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+@supports not (view-transition-name: none) {
+  .wrap { animation: pageIn .5s ease both; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
   .file { opacity: 1; transform: none; }
+  .wrap { animation: none !important; }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
 }
