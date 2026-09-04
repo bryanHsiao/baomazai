@@ -56,9 +56,14 @@ def fetch_symbol(symbol):
     return {"price": numify(price), "asOf": asof, "asOfTime": asof_time, "prevClose": numify(prev)}
 
 
-def get_quote(ticker):
-    """先試上市 .TW，再試上櫃 .TWO；各自小重試一次。"""
-    for symbol in (f"{ticker}.TW", f"{ticker}.TWO"):
+def get_quote(ticker, symbol_override=None):
+    """先試上市 .TW，再試上櫃 .TWO；各自小重試一次。
+
+    非台股（例：港股）在 reports.json 設 `quoteSymbol`（如 "1196.HK"）即直接採用，
+    不再猜 .TW/.TWO。港股同為 UTC+8，時間換算沿用同一時區。
+    """
+    symbols = (symbol_override,) if symbol_override else (f"{ticker}.TW", f"{ticker}.TWO")
+    for symbol in symbols:
         for attempt in range(2):
             try:
                 q = fetch_symbol(symbol)
@@ -81,7 +86,7 @@ def main():
     changed = 0
     for x in data:
         t = x["ticker"]
-        newq = get_quote(t)
+        newq = get_quote(t, x.get("quoteSymbol"))
         if not newq:
             print("!! 無報價（保留原值）：", t)
             continue
