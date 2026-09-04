@@ -42,6 +42,7 @@ docs/data/hedge/**/*.jpeg
 !docs/data/3324/intel/tip-2026-07-08.png
 !docs/data/6182/intel/tip-2026-08-17.png
 !docs/data/4958/intel/tip-2026-09-04.png
+!docs/data/01196/intel/tip-2026-09-04.jpg
 # 已去識別化（無帳號/頭像）、可公開的市場喊話截圖
 !docs/data/hedge/2026-07-28/call-headtop.png
 !docs/data/hedge/2026-07-28/call-assetshrink.png
