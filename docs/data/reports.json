@@ -32,10 +32,10 @@
     "file": "data/1718/report.md",
     "date": "2026-06-25",
     "quote": {
-      "price": 10.7,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 10.75
+      "price": 10.6,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 10.7
     },
     "intel": {
       "note": "data/1718/intel/intel.md",
@@ -102,10 +102,10 @@
     "file": "data/6226/report.md",
     "date": "2026-06-26",
     "quote": {
-      "price": 44.2,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 44.5
+      "price": 42.7,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 44.2
     },
     "intel": {
       "received": "2026-06-26",
@@ -154,10 +154,10 @@
     "file": "data/1449/report.md",
     "date": "2026-06-08",
     "quote": {
-      "price": 12.35,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 12.55
+      "price": 12.3,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 12.35
     },
     "intel": {
       "received": "2026-06-08",
@@ -236,9 +236,9 @@
     "file": "data/3029/report.md",
     "date": "2026-06-01",
     "quote": {
-      "price": 121,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
+      "price": 118.5,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
       "prevClose": 121
     },
     "intel": {
@@ -288,10 +288,10 @@
     "file": "data/3147/report.md",
     "date": "2026-06-01",
     "quote": {
-      "price": 232,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 238
+      "price": 234.5,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 232
     },
     "intel": {
       "received": "2026-06-01",
@@ -340,10 +340,10 @@
     "file": "data/6112/report.md",
     "date": "2026-06-01",
     "quote": {
-      "price": 48.8,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 49
+      "price": 48.2,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 48.8
     },
     "intel": {
       "received": "2026-06-01",
@@ -392,10 +392,10 @@
     "file": "data/3293/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 727,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 724
+      "price": 729,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 727
     },
     "intel": {
       "received": "2026-07-04",
@@ -444,10 +444,10 @@
     "file": "data/8261/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 176.5,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 173.5
+      "price": 180.5,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 176.5
     },
     "intel": {
       "note": "data/8261/intel/intel.md",
@@ -508,10 +508,10 @@
     "file": "data/6435/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 246,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 244.5
+      "price": 249,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 246
     },
     "intel": {
       "received": "2026-07-04",
@@ -560,10 +560,10 @@
     "file": "data/3317/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 60.5,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 56.2
+      "price": 66.5,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 60.5
     },
     "intel": {
       "received": "2026-07-04",
@@ -612,10 +612,10 @@
     "file": "data/2481/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 171,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 168
+      "price": 173,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 171
     },
     "intel": {
       "received": "2026-07-04",
@@ -664,10 +664,10 @@
     "file": "data/6573/report.md",
     "date": "2026-07-04",
     "quote": {
-      "price": 16.2,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 16.5
+      "price": 16.1,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 16.2
     },
     "intel": {
       "received": "2026-07-04",
@@ -712,10 +712,10 @@
     "file": "data/6239/report.md",
     "date": "2026-07-06",
     "quote": {
-      "price": 292,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 292.5
+      "price": 286.5,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 292
     },
     "intel": {
       "received": "2026-07-06",
@@ -759,10 +759,10 @@
     "file": "data/2368/report.md",
     "date": "2026-07-06",
     "quote": {
-      "price": 1040,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 1045
+      "price": 1140,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 1040
     },
     "intel": {
       "received": "2026-07-06",
@@ -806,10 +806,10 @@
     "file": "data/8064/report.md",
     "date": "2026-07-06",
     "quote": {
-      "price": 134,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 138
+      "price": 133,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 134
     },
     "intel": {
       "received": "2026-07-06",
@@ -852,10 +852,10 @@
     "file": "data/3324/report.md",
     "date": "2026-07-08",
     "quote": {
-      "price": 1600,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 1520
+      "price": 1595,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 1600
     },
     "intel": {
       "received": "2026-07-08",
@@ -905,10 +905,10 @@
     "file": "data/6182/report.md",
     "date": "2026-08-17",
     "quote": {
-      "price": 119,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 115
+      "price": 115.5,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 119
     },
     "intel": {
       "received": "2026-08-17",
@@ -958,10 +958,10 @@
     "file": "data/4958/report.md",
     "date": "2026-09-02",
     "quote": {
-      "price": 489,
-      "asOf": "2026-09-22",
-      "asOfTime": "2026/09/22 13:30",
-      "prevClose": 470
+      "price": 473,
+      "asOf": "2026-09-23",
+      "asOfTime": "2026/09/23 13:30",
+      "prevClose": 489
     },
     "intel": {
       "received": "2026-09-02",
