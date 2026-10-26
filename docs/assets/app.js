@@ -468,10 +468,98 @@
         '無法載入避險紀錄（' + err.message + '）。請透過 GitHub Pages 或本機伺服器開啟。</p>';
     });
 
+    fetch("data/market-seals.json", { cache: "no-cache" }).then(function (r) {
+      if (!r.ok) throw new Error("market-seals.json " + r.status);
+      return r.json();
+    }).then(function (seals) {
+      seals.sort(function (a, b) { return (b.id || "").localeCompare(a.id || ""); });
+      buildSeals(seals);
+    }).catch(function () {
+      var sec = document.getElementById("seal-list");
+      if (sec) sec.parentNode.removeChild(sec.previousElementSibling); // hide empty slabel
+      if (sec) sec.parentNode.removeChild(sec);
+    });
+
     fetch("data/hedge-insights.json", { cache: "no-cache" }).then(function (r) {
       if (!r.ok) throw new Error("hedge-insights.json " + r.status);
       return r.json();
     }).then(buildInsights).catch(function () {});
+  }
+
+  function buildSeals(items) {
+    var wrap = document.getElementById("seal-list");
+    if (!wrap) return;
+    wrap.innerHTML = "";
+    (items || []).forEach(function (s) {
+      var resolved = s.status === "resolved" && s.resolution;
+      var statusChip = resolved
+        ? '<span class="seal__status seal__status--done">✓ 已對帳</span>'
+        : '<span class="seal__status seal__status--live"><span class="seal__pulse"></span>待驗證</span>';
+
+      var flip = s.flip || {};
+      var flipRows = (flip.rows || []).map(function (r) {
+        return '<tr><td>' + r.t + '</td>' +
+          '<td class="mono">' + r.v + '</td>' +
+          '<td class="seal-note">' + (r.note || "") + '</td></tr>';
+      }).join("");
+      var flipHtml = flip.rows ?
+        '<div class="seal-flip">' +
+          '<div class="seal-flip__k">🔄 ' + (flip.k || "變臉") + '</div>' +
+          (flip.text ? '<p class="seal-flip__t">' + flip.text + '</p>' : "") +
+          '<div class="table-wrap"><table class="seal-tbl"><tbody>' + flipRows + '</tbody></table></div>' +
+        '</div>' : "";
+
+      var noise = (s.noise || []).map(function (n) {
+        return '<div class="seal-noise seal-noise--' + (n.side || "neu") + '">' +
+          '<div class="seal-noise__k">' + n.label + '</div>' +
+          '<div class="seal-noise__t">' + n.text + '</div>' +
+          '</div>';
+      }).join("");
+
+      var anchors = (s.anchors || []).map(function (a) {
+        return '<div class="seal-anchor">' +
+          '<div class="seal-anchor__v mono">' + a.v + '</div>' +
+          '<div class="seal-anchor__k">' + a.k + '</div>' +
+          (a.note ? '<div class="seal-anchor__n">' + a.note + '</div>' : "") +
+          '</div>';
+      }).join("");
+
+      var watch = (s.watch || []).map(function (w) { return '<li>' + w + '</li>'; }).join("");
+
+      var resHtml = "";
+      if (resolved) {
+        var r = s.resolution;
+        resHtml =
+          '<div class="seal-res">' +
+            '<div class="seal-res__k mono">🔜 對帳結果 · ' + (r.date || "") + '</div>' +
+            '<div class="seal-res__out">' + r.outcome + '</div>' +
+            (r.lesson ? '<p class="seal-res__lesson">' + r.lesson + '</p>' : "") +
+          '</div>';
+      }
+
+      wrap.innerHTML +=
+        '<article class="seal' + (resolved ? ' is-resolved' : '') + '">' +
+          '<div class="seal__bar">' +
+            '<span class="seal__tag">📌 ' + (s.tag || "預測封存") + '</span>' +
+            statusChip +
+            '<span class="seal__date mono">' + (s.sealed || "") +
+              (s.sealedLabel ? ' · ' + s.sealedLabel : "") + '</span>' +
+          '</div>' +
+          '<h2 class="seal__title">' + s.title + '</h2>' +
+          (s.lead ? '<p class="seal__lead">' + s.lead + '</p>' : "") +
+          flipHtml +
+          (s.narrative ?
+            '<div class="seal-narr"><span class="seal-narr__k mono">當時流傳的劇本</span>' + s.narrative + '</div>' : "") +
+          (s.crack ? '<p class="seal-crack">⚠ ' + s.crack + '</p>' : "") +
+          (noise ? '<div class="seal-noises">' + noise + '</div>' : "") +
+          (anchors ? '<div class="seal-anchors">' + anchors + '</div>' : "") +
+          (watch ?
+            '<div class="seal-watch"><div class="seal-watch__k">🔜 待驗證（回來對帳）</div><ul>' + watch + '</ul></div>' : "") +
+          (s.stance ? '<div class="seal-stance"><span class="seal-stance__k mono">本站立場</span>' + s.stance + '</div>' : "") +
+          resHtml +
+          (s.relatedInsight ? '<p class="seal-rel">' + s.relatedInsight + '</p>' : "") +
+        '</article>';
+    });
   }
 
   function buildInsights(items) {
