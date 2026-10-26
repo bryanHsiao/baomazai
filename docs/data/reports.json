@@ -1012,10 +1012,10 @@
     "date": "2026-09-04",
     "quoteSymbol": "1196.HK",
     "quote": {
-      "price": 0.295,
-      "asOf": "2026-10-23",
-      "asOfTime": "2026/10/23 16:08",
-      "prevClose": 0.275
+      "price": 0.28,
+      "asOf": "2026-10-26",
+      "asOfTime": "2026/10/26 16:08",
+      "prevClose": 0.295
     },
     "intel": {
       "received": "2026-09-04",
