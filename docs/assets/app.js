@@ -110,6 +110,7 @@
       reports.sort(function (a, b) { return latestTipDate(b).localeCompare(latestTipDate(a)); });
       buildTape(reports);
       buildFiles(reports);
+      initFileSearch(reports);
     }).catch(function (err) {
       var files = document.getElementById("files");
       if (files) files.innerHTML =
@@ -210,6 +211,9 @@
           '</div>' +
         '</div>';
 
+      // 搜尋索引：代號／名稱／簡稱／產業／標題／摘要
+      a.dataset.search = (r.ticker + " " + r.name + " " + (r.short || "") + " " +
+        (r.sector || "") + " " + headline + " " + (r.tagline || "")).toLowerCase();
       wrap.appendChild(a);
     });
 
@@ -230,6 +234,51 @@
       });
     }, { threshold: 0.15 });
     items.forEach(function (n, idx) { n.dataset.i = idx; io.observe(n); });
+  }
+
+  // 快速搜尋：即時過濾卡片；查無獨立報告時，再看是否被其他報告的查證提到
+  function initFileSearch(reports) {
+    var inp = document.getElementById("file-search");
+    var wrap = document.getElementById("files");
+    var empty = document.getElementById("file-empty");
+    if (!inp || !wrap) return;
+
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+      });
+    }
+
+    inp.addEventListener("input", function () {
+      var raw = inp.value.trim();
+      var q = raw.toLowerCase();
+      var items = wrap.querySelectorAll(".file");
+      var shown = 0;
+      items.forEach(function (n) {
+        var hit = !q || (n.dataset.search || "").indexOf(q) >= 0;
+        n.style.display = hit ? "" : "none";
+        if (hit) { n.classList.add("in"); shown++; }
+      });
+
+      if (!empty) return;
+      if (!q || shown > 0) { empty.hidden = true; empty.innerHTML = ""; return; }
+
+      // 沒有獨立報告 → 掃描是否在其他報告的內文（查證等）被提到
+      var mentions = (reports || []).filter(function (r) {
+        return JSON.stringify(r).toLowerCase().indexOf(q) >= 0;
+      }).slice(0, 8);
+      var html = "找不到「" + esc(raw) + "」的獨立分析報告。";
+      if (mentions.length) {
+        html += " 不過它出現在這些報告的查證裡：" + mentions.map(function (r) {
+          return '<a href="report.html?id=' + encodeURIComponent(r.id) + '">' +
+            esc(r.name) + " " + esc(r.ticker) + "</a>";
+        }).join("、");
+      } else {
+        html += " 可能還沒研究過。";
+      }
+      empty.innerHTML = html;
+      empty.hidden = false;
+    });
   }
 
   /* ---------------------------------------------------------

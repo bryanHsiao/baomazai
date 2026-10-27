@@ -52,7 +52,12 @@
     </header>
 
     <!-- research files -->
-    <div class="slabel">情報追蹤 &nbsp;·&nbsp; <b>TIP TRACKER</b></div>
+    <div class="slabel slabel--search">
+      <span class="slabel__t">情報追蹤 &nbsp;·&nbsp; <b>TIP TRACKER</b></span>
+      <span class="slabel__rule" aria-hidden="true"></span>
+      <input type="search" id="file-search" class="file-search" placeholder="搜尋代號／名稱…" autocomplete="off" aria-label="搜尋已分析個股">
+    </div>
+    <p id="file-empty" class="file-empty" hidden></p>
     <section class="files" id="files">
       <!-- populated by app.js -->
     </section>

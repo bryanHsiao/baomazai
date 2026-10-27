@@ -153,6 +153,35 @@ a { color: inherit; text-decoration: none; }
 .slabel::after { content: ""; height: 1px; flex: 1; background: var(--line); }
 .slabel b { color: var(--ink); }
 
+/* 情報追蹤標題列的快速搜尋（內嵌右側，桌機不佔額外高度） */
+.slabel--search::after { display: none; }
+.slabel__t { flex: 0 0 auto; }
+.slabel__rule { height: 1px; flex: 1; background: var(--line); }
+.file-search {
+  flex: 0 0 auto; width: 210px; max-width: 46vw;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+  text-transform: none; color: var(--ink); background: transparent;
+  border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px;
+  transition: border-color .25s var(--ease);
+}
+.file-search::placeholder { color: var(--muted); letter-spacing: .04em; }
+.file-search:focus { outline: none; border-color: var(--ink); }
+.file-search::-webkit-search-cancel-button { cursor: pointer; }
+
+.file-empty {
+  font-family: var(--mono); font-size: 13px; line-height: 1.75;
+  color: var(--muted); letter-spacing: .02em; padding: 16px 6px 2px;
+}
+.file-empty a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.file-empty a:hover { opacity: .7; }
+
+@media (max-width: 620px) {
+  .slabel--search { flex-wrap: wrap; gap: 10px 0; }
+  .slabel__t { flex: 1 1 100%; }
+  .slabel__rule { display: none; }
+  .file-search { flex: 1 1 100%; width: 100%; max-width: none; }
+}
+
 /* =========================================================
    RESEARCH FILE ROWS (index)
    ========================================================= */
