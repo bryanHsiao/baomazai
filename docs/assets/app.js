@@ -110,6 +110,8 @@
       reports.sort(function (a, b) { return latestTipDate(b).localeCompare(latestTipDate(a)); });
       buildTape(reports);
       buildFiles(reports);
+      buildFileList(reports);
+      initViewMode();
       initFileSearch(reports);
     }).catch(function (err) {
       var files = document.getElementById("files");
@@ -236,10 +238,92 @@
     items.forEach(function (n, idx) { n.dataset.i = idx; io.observe(n); });
   }
 
-  // 快速搜尋：即時過濾卡片；查無獨立報告時，再看是否被其他報告的查證提到
+  // 清單檢視：一行一檔的密集索引（代號｜名稱｜查證｜報明牌日｜自基準漲跌）
+  function buildFileList(reports) {
+    var wrap = document.getElementById("files-list");
+    if (!wrap) return;
+    wrap.innerHTML =
+      '<div class="flrow flrow--head" aria-hidden="true">' +
+        '<span class="fl-tk">代號</span>' +
+        '<span class="fl-name">名稱</span>' +
+        '<span class="fl-vd">查證</span>' +
+        '<span class="fl-date">報明牌</span>' +
+        '<span class="fl-perf">自基準</span>' +
+      '</div>';
+
+    reports.forEach(function (r) {
+      var isHold = r.kind === "holding";
+      var tips = getTips(r);
+      var latest = tips[0] || {};
+      var pf = perf(r);
+      var perfHtml = "—";
+      if (pf) {
+        perfHtml = pf.days <= 0
+          ? '<span class="fl-flat">追蹤中</span>'
+          : '<span class="fl-' + pf.dir + '">' + pf.retStr +
+              (pf.dir === "up" ? " ▲" : pf.dir === "down" ? " ▼" : "") + '</span>';
+      }
+      var tipDate = ((latest.date || r.date) || "").replace(/-/g, "/").slice(5); // MM/DD
+
+      var a = el("a", "flrow");
+      a.href = "report.html?id=" + encodeURIComponent(r.id);
+      a.innerHTML =
+        '<span class="fl-tk mono">' + r.ticker + '</span>' +
+        '<span class="fl-name">' + r.name +
+          ' <span class="fl-short">' + r.short + '</span>' +
+          (isHold ? ' <span class="fl-badge">持股</span>' : '') +
+          (tips.length > 1 ? ' <span class="fl-badge">再報×' + tips.length + '</span>' : '') +
+        '</span>' +
+        '<span class="fl-vd"><span class="' + verdictClass(r.verdictTone) + '">' + r.verdict + '</span></span>' +
+        '<span class="fl-date mono">' + tipDate + '</span>' +
+        '<span class="fl-perf mono">' + perfHtml + '</span>';
+
+      // 與卡片共用同一套搜尋索引
+      a.dataset.search = (r.ticker + " " + r.name + " " + (r.short || "") + " " +
+        (r.sector || "") + " " + (latest.headline || r.tagline) + " " + (r.tagline || "")).toLowerCase();
+      wrap.appendChild(a);
+    });
+  }
+
+  // 卡片／清單檢視切換（預設卡片；記住上次選擇）
+  function initViewMode() {
+    var box = document.getElementById("view-mode");
+    var cards = document.getElementById("files");
+    var list = document.getElementById("files-list");
+    if (!box || !cards || !list) return;
+    var btns = box.querySelectorAll(".viewmode__btn");
+
+    function apply(mode) {
+      var isList = mode === "list";
+      cards.hidden = isList;
+      list.hidden = !isList;
+      // 卡片是靠 IntersectionObserver 淡入的；若載入時就在清單模式，
+      // 卡片不會被觀察到，切回來會停在透明狀態 → 這裡強制顯示。
+      if (!isList) {
+        cards.querySelectorAll(".file").forEach(function (n) { n.classList.add("in"); });
+      }
+      btns.forEach(function (b) {
+        var on = b.dataset.mode === mode;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      try { localStorage.setItem("tiptracker-view", mode); } catch (e) {}
+    }
+
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () { apply(b.dataset.mode); });
+    });
+
+    var saved = "card";
+    try { saved = localStorage.getItem("tiptracker-view") || "card"; } catch (e) {}
+    apply(saved);
+  }
+
+  // 快速搜尋：即時過濾卡片與清單；查無獨立報告時，再看是否被其他報告的查證提到
   function initFileSearch(reports) {
     var inp = document.getElementById("file-search");
     var wrap = document.getElementById("files");
+    var list = document.getElementById("files-list");
     var empty = document.getElementById("file-empty");
     var countEl = document.getElementById("file-count");
     if (!wrap) return;
@@ -262,11 +346,16 @@
       var raw = inp.value.trim();
       var q = raw.toLowerCase();
       var items = wrap.querySelectorAll(".file");
+      var rows = list ? list.querySelectorAll(".flrow:not(.flrow--head)") : [];
       var shown = 0;
       items.forEach(function (n) {
         var hit = !q || (n.dataset.search || "").indexOf(q) >= 0;
         n.style.display = hit ? "" : "none";
         if (hit) { n.classList.add("in"); shown++; }
+      });
+      rows.forEach(function (n) {
+        var hit = !q || (n.dataset.search || "").indexOf(q) >= 0;
+        n.style.display = hit ? "" : "none";
       });
       setCount(shown);
 

@@ -56,11 +56,18 @@
       <span class="slabel__t">情報追蹤 &nbsp;·&nbsp; <b>TIP TRACKER</b></span>
       <span class="slabel__count mono" id="file-count"></span>
       <span class="slabel__rule" aria-hidden="true"></span>
+      <div class="viewmode" id="view-mode" role="group" aria-label="檢視方式">
+        <button type="button" class="viewmode__btn is-active" data-mode="card" aria-pressed="true">▦&nbsp;卡片</button>
+        <button type="button" class="viewmode__btn" data-mode="list" aria-pressed="false">☰&nbsp;清單</button>
+      </div>
       <input type="search" id="file-search" class="file-search" placeholder="搜尋代號／名稱…" autocomplete="off" aria-label="搜尋已分析個股">
     </div>
     <p id="file-empty" class="file-empty" hidden></p>
     <section class="files" id="files">
       <!-- populated by app.js -->
+    </section>
+    <section class="filelist" id="files-list" hidden>
+      <!-- populated by app.js (清單檢視) -->
     </section>
 
     <!-- disclaimer -->
