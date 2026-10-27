@@ -572,7 +572,9 @@
           (noise ? '<div class="seal-noises">' + noise + '</div>' : "") +
           (anchors ? '<div class="seal-anchors">' + anchors + '</div>' : "") +
           (watch ?
-            '<div class="seal-watch"><div class="seal-watch__k">🔜 待驗證（回來對帳）</div><ul>' + watch + '</ul></div>' : "") +
+            '<div class="seal-watch"><div class="seal-watch__k">' +
+              (resolved ? '🔍 當初要看的三個點' : '🔜 待驗證（回來對帳）') +
+            '</div><ul>' + watch + '</ul></div>' : "") +
           (s.stance ? '<div class="seal-stance"><span class="seal-stance__k mono">本站立場</span>' + s.stance + '</div>' : "") +
           resHtml +
           (s.relatedInsight ? '<p class="seal-rel">' + s.relatedInsight + '</p>' : "") +
