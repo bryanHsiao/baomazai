@@ -241,7 +241,16 @@
     var inp = document.getElementById("file-search");
     var wrap = document.getElementById("files");
     var empty = document.getElementById("file-empty");
-    if (!inp || !wrap) return;
+    var countEl = document.getElementById("file-count");
+    if (!wrap) return;
+
+    var total = wrap.querySelectorAll(".file").length;
+    function setCount(shown) {
+      if (!countEl) return;
+      countEl.textContent = (shown >= total) ? ("共 " + total + " 檔") : (shown + " / " + total + " 檔");
+    }
+    setCount(total);
+    if (!inp) return;
 
     function esc(s) {
       return String(s).replace(/[&<>"]/g, function (c) {
@@ -259,6 +268,7 @@
         n.style.display = hit ? "" : "none";
         if (hit) { n.classList.add("in"); shown++; }
       });
+      setCount(shown);
 
       if (!empty) return;
       if (!q || shown > 0) { empty.hidden = true; empty.innerHTML = ""; return; }

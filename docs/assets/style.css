@@ -157,6 +157,11 @@ a { color: inherit; text-decoration: none; }
 .slabel--search::after { display: none; }
 .slabel__t { flex: 0 0 auto; }
 .slabel__rule { height: 1px; flex: 1; background: var(--line); }
+.slabel__count {
+  flex: 0 0 auto; font-size: 11px; font-weight: 600;
+  letter-spacing: .06em; text-transform: none; white-space: nowrap;
+  color: var(--muted);
+}
 .file-search {
   flex: 0 0 auto; width: 210px; max-width: 46vw;
   font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
@@ -176,10 +181,9 @@ a { color: inherit; text-decoration: none; }
 .file-empty a:hover { opacity: .7; }
 
 @media (max-width: 620px) {
-  .slabel--search { flex-wrap: wrap; gap: 10px 0; }
-  .slabel__t { flex: 1 1 100%; }
+  .slabel--search { flex-wrap: wrap; gap: 10px 8px; }
   .slabel__rule { display: none; }
-  .file-search { flex: 1 1 100%; width: 100%; max-width: none; }
+  .file-search { flex: 1 1 100%; width: 100%; max-width: none; margin-top: 2px; }
 }
 
 /* =========================================================
