@@ -116,6 +116,9 @@
         '<p style="font-family:var(--mono);color:var(--muted);padding:40px 0">' +
         '無法載入研究清單（' + err.message + '）。請透過 GitHub Pages 或本機伺服器開啟。</p>';
     });
+
+    // 報馬頁只顯示「明牌封存」類（home === "tips"）的對帳卡
+    loadSealsInto(function (s) { return s.home === "tips"; });
   }
 
   function buildTape(reports) {
@@ -468,22 +471,37 @@
         '無法載入避險紀錄（' + err.message + '）。請透過 GitHub Pages 或本機伺服器開啟。</p>';
     });
 
-    fetch("data/market-seals.json", { cache: "no-cache" }).then(function (r) {
-      if (!r.ok) throw new Error("market-seals.json " + r.status);
-      return r.json();
-    }).then(function (seals) {
-      seals.sort(function (a, b) { return (b.id || "").localeCompare(a.id || ""); });
-      buildSeals(seals);
-    }).catch(function () {
-      var sec = document.getElementById("seal-list");
-      if (sec) sec.parentNode.removeChild(sec.previousElementSibling); // hide empty slabel
-      if (sec) sec.parentNode.removeChild(sec);
-    });
+    loadSealsInto(function (s) { return s.home !== "tips"; });
 
     fetch("data/hedge-insights.json", { cache: "no-cache" }).then(function (r) {
       if (!r.ok) throw new Error("hedge-insights.json " + r.status);
       return r.json();
     }).then(buildInsights).catch(function () {});
+  }
+
+  function removeSealSection() {
+    var sec = document.getElementById("seal-list");
+    if (!sec) return;
+    var prev = sec.previousElementSibling;
+    if (prev && prev.classList && prev.classList.contains("slabel")) {
+      prev.parentNode.removeChild(prev);
+    }
+    sec.parentNode.removeChild(sec);
+  }
+
+  // Load market-seals.json, keep only entries matching `keep`, render into #seal-list.
+  // If none match (or fetch fails), remove the section + its slabel so no empty block shows.
+  function loadSealsInto(keep) {
+    if (!document.getElementById("seal-list")) return;
+    fetch("data/market-seals.json", { cache: "no-cache" }).then(function (r) {
+      if (!r.ok) throw new Error("market-seals.json " + r.status);
+      return r.json();
+    }).then(function (seals) {
+      var list = (seals || []).filter(keep);
+      list.sort(function (a, b) { return (b.id || "").localeCompare(a.id || ""); });
+      if (!list.length) { removeSealSection(); return; }
+      buildSeals(list);
+    }).catch(removeSealSection);
   }
 
   function buildSeals(items) {

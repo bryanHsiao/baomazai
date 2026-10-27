@@ -2,6 +2,7 @@
   {
     "id": "2026-10-27-pump",
     "status": "pending",
+    "home": "tips",
     "sealed": "2026-10-27",
     "sealedLabel": "週二開盤前封存",
     "tag": "網紅喊盤立誓",
@@ -43,6 +44,7 @@
   {
     "id": "2026-10-27",
     "status": "pending",
+    "home": "events",
     "sealed": "2026-10-27",
     "sealedLabel": "台股連假後開盤前封存",
     "tag": "市場雜音封存",
