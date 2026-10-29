@@ -43,6 +43,12 @@ docs/data/hedge/**/*.jpeg
 !docs/data/6182/intel/tip-2026-08-17.png
 !docs/data/4958/intel/tip-2026-09-04.png
 !docs/data/01196/intel/tip-2026-09-04.jpg
+# 網紅「週二絕對噴」喊盤立誓（已去頭像/認證/追蹤鈕的去識別化版）— 五檔共用同一張
+!docs/data/2409/intel/tip-2026-10-27.png
+!docs/data/1815/intel/tip-2026-10-27.png
+!docs/data/2303/intel/tip-2026-10-27.png
+!docs/data/2408/intel/tip-2026-10-27.png
+!docs/data/1303/intel/tip-2026-10-27.png
 # 已去識別化（無帳號/頭像）、可公開的市場喊話截圖
 !docs/data/hedge/2026-07-28/call-headtop.png
 !docs/data/hedge/2026-07-28/call-assetshrink.png
