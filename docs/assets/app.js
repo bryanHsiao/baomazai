@@ -690,6 +690,11 @@
           '</div>';
       }).join("");
 
+      var shots = (s.shots || []).map(shotHtml).join("");
+      var shotsHtml = shots
+        ? '<div class="seal-shots"><div class="seal-shots__k mono">📸 原始喊話存證</div><div class="intel__shots">' + shots + '</div></div>'
+        : "";
+
       var watch = (s.watch || []).map(function (w) { return '<li>' + w + '</li>'; }).join("");
 
       var resHtml = "";
@@ -713,6 +718,7 @@
           '</div>' +
           '<h2 class="seal__title">' + s.title + '</h2>' +
           (s.lead ? '<p class="seal__lead">' + s.lead + '</p>' : "") +
+          shotsHtml +
           flipHtml +
           (s.narrative ?
             '<div class="seal-narr"><span class="seal-narr__k mono">當時流傳的劇本</span>' + s.narrative + '</div>' : "") +

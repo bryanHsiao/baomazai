@@ -52,3 +52,7 @@ docs/data/hedge/**/*.jpeg
 # 已去識別化（無帳號/頭像）、可公開的市場喊話截圖
 !docs/data/hedge/2026-07-28/call-headtop.png
 !docs/data/hedge/2026-07-28/call-assetshrink.png
+# 2026/11 跌 867 點那晚的兩端情緒（恐慌投降 vs 網紅加碼賭五萬點）— 已去頭像/去本名
+!docs/data/hedge/2026-11-01/panic-txf.png
+!docs/data/hedge/2026-11-01/che-head.png
+!docs/data/hedge/2026-11-01/che-targets.png

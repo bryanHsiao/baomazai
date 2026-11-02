@@ -834,6 +834,11 @@ a.flrow:hover { background: var(--plate-soft, rgba(0,0,0,.025)); padding-left: 1
 .seal-narr__k { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
 .seal-crack { font-size: 12.5px; line-height: 1.7; color: var(--rise-deep); margin: 0 0 16px; }
 
+/* 封存卡：原始喊話存證截圖 */
+.seal-shots { margin: 0 0 16px; }
+.seal-shots__k { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--muted); margin-bottom: 8px; }
+.seal-shots .intel__shots { padding: 0; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+
 .seal-noises { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
 .seal-noise { border: 1px solid var(--line); border-radius: 3px; padding: 12px 14px; background: var(--paper); }
 .seal-noise--fear { border-left: 3px solid var(--fall); }
