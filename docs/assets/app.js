@@ -860,7 +860,7 @@
               return '<div class="hedge-card">' +
                 '<div class="hedge-card__k"><span class="mono hedge-tk">' + h.ticker + '</span> ' + h.name + '</div>' +
                 '<div class="hedge-card__big mono ' + (moveClass(h.dropPct) || "flat") + '">' + h.dropPct + '</div>' +
-                '<div class="hedge-card__sub">下跌期間幾乎持平</div>' +
+                '<div class="hedge-card__sub">' + (h.cardSub || "下跌期間幾乎持平") + '</div>' +
                 '<div class="hedge-card__sub">最慘日 <span class="' + moveClass(h.worstDay) + '">' + h.worstDay + '</span></div>' +
                 '</div>';
             }).join("") +
