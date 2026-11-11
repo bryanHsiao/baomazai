@@ -685,16 +685,34 @@
         '</li>';
       }).join("");
 
+      var cl = e.closeline;
+      var closed = cl && cl.state === "closed";
+      var stateChip = cl
+        ? (closed
+            ? '<span class="elog__state elog__state--done">✓ 已結案</span>'
+            : '<span class="elog__state elog__state--live"><span class="elog__pulse"></span>進行中</span>')
+        : "";
+      var closeHtml = cl
+        ? '<div class="elog-close elog-close--' + (closed ? "done" : "live") + '">' +
+            '<div class="elog-close__k mono">🎯 結案線' + (closed ? " · 已達標" : "（事件何時告一段落）") + '</div>' +
+            '<div class="elog-close__m">' + (cl.metric || "") + '</div>' +
+            (cl.now ? '<div class="elog-close__n">' + cl.now + '</div>' : "") +
+            (cl.note ? '<p class="elog-close__note">' + cl.note + '</p>' : "") +
+          '</div>'
+        : "";
+
       wrap.innerHTML +=
         '<article class="elog">' +
           '<div class="elog__bar">' +
             (e.kicker ? '<span class="elog__kick">📊 ' + e.kicker + '</span>' : "") +
+            stateChip +
             (e.period ? '<span class="elog__period mono">' + e.period + '</span>' : "") +
           '</div>' +
           '<h2 class="elog__title">' + e.title + '</h2>' +
           (e.summary ? '<p class="elog__sum">' + e.summary + '</p>' : "") +
           (stats ? '<div class="elog-stats">' + stats + '</div>' : "") +
           (tl ? '<ol class="elog-tl">' + tl + '</ol>' : "") +
+          closeHtml +
           (e.takeaway ? '<div class="elog__take"><span class="elog__take-k">一句話</span>' + e.takeaway + '</div>' : "") +
           (e.note ? '<p class="elog__note">↓ ' + e.note + '</p>' : "") +
         '</article>';
