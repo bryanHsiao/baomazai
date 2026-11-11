@@ -51,17 +51,33 @@
       </div>
     </header>
 
-    <!-- prediction seals (live, falsifiable) -->
-    <div class="slabel">預測封存 &nbsp;·&nbsp; <b>SEALED CALLS</b></div>
-    <section class="seal-list" id="seal-list">
+    <!-- event log (simple timeline — primary) -->
+    <div class="slabel">事件紀錄 &nbsp;·&nbsp; <b>MARKET EVENTS</b></div>
+    <section class="eventlog-list" id="eventlog-list">
       <!-- populated by app.js -->
     </section>
 
-    <!-- market events -->
-    <div class="slabel">事件紀錄 &nbsp;·&nbsp; <b>MARKET EVENTS</b></div>
-    <section class="hedge-list" id="hedge-list">
-      <!-- populated by app.js -->
-    </section>
+    <!-- appendix: full reconciliation + hedge analysis (collapsed) -->
+    <details class="appx" id="appx">
+      <summary class="appx__sum">
+        <span class="appx__k">附錄 · APPENDIX</span>
+        <span class="appx__t">逐條喊話對帳與封存（9 字頭 · 哲哲年底五萬 · 撿便宜 0050）＋股債避險防禦力完整分析</span>
+        <span class="appx__hint mono" aria-hidden="true"></span>
+      </summary>
+      <div class="appx__body">
+        <!-- prediction seals (live, falsifiable) -->
+        <div class="slabel">預測封存 &nbsp;·&nbsp; <b>SEALED CALLS</b></div>
+        <section class="seal-list" id="seal-list">
+          <!-- populated by app.js -->
+        </section>
+
+        <!-- hedge defense check -->
+        <div class="slabel">避險防禦力 &nbsp;·&nbsp; <b>HEDGE CHECK</b></div>
+        <section class="hedge-list" id="hedge-list">
+          <!-- populated by app.js -->
+        </section>
+      </div>
+    </details>
 
     <!-- myth busters / knowledge cards -->
     <div class="slabel">迷思破解 &nbsp;·&nbsp; <b>MYTH BUSTER</b></div>

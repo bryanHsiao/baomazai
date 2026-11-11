@@ -606,6 +606,15 @@
       buildTape(reports);
     }).catch(function () {});
 
+    // simple event timeline (primary record)
+    fetch("data/event-log.json", { cache: "no-cache" }).then(function (r) {
+      if (!r.ok) throw new Error("event-log.json " + r.status);
+      return r.json();
+    }).then(function (events) {
+      events.sort(function (a, b) { return (b.id || "").localeCompare(a.id || ""); });
+      buildEventLog(events);
+    }).catch(function () {});
+
     fetch("data/hedge-events.json", { cache: "no-cache" }).then(function (r) {
       if (!r.ok) throw new Error("hedge-events.json " + r.status);
       return r.json();
@@ -650,6 +659,46 @@
       if (!list.length) { removeSealSection(); return; }
       buildSeals(list);
     }).catch(removeSealSection);
+  }
+
+  // Simple event timeline card(s) — the primary, scannable record.
+  function buildEventLog(items) {
+    var wrap = document.getElementById("eventlog-list");
+    if (!wrap) return;
+    wrap.innerHTML = "";
+    (items || []).forEach(function (e) {
+      var stats = (e.stats || []).map(function (s) {
+        return '<div class="elog-stat elog-stat--' + (s.tone || "neu") + '">' +
+          '<div class="elog-stat__v mono">' + s.v + '</div>' +
+          '<div class="elog-stat__k">' + s.k + '</div>' +
+          (s.sub ? '<div class="elog-stat__s">' + s.sub + '</div>' : "") +
+          '</div>';
+      }).join("");
+
+      var tl = (e.timeline || []).map(function (t) {
+        return '<li class="elog-tl__i elog-tl__i--' + (t.tone || "neu") + '">' +
+          '<span class="elog-tl__d mono">' + t.d + '</span>' +
+          '<div class="elog-tl__b">' +
+            (t.when ? '<b class="elog-tl__w">' + t.when + '</b>' : "") +
+            '<span class="elog-tl__t">' + t.text + '</span>' +
+          '</div>' +
+        '</li>';
+      }).join("");
+
+      wrap.innerHTML +=
+        '<article class="elog">' +
+          '<div class="elog__bar">' +
+            (e.kicker ? '<span class="elog__kick">📊 ' + e.kicker + '</span>' : "") +
+            (e.period ? '<span class="elog__period mono">' + e.period + '</span>' : "") +
+          '</div>' +
+          '<h2 class="elog__title">' + e.title + '</h2>' +
+          (e.summary ? '<p class="elog__sum">' + e.summary + '</p>' : "") +
+          (stats ? '<div class="elog-stats">' + stats + '</div>' : "") +
+          (tl ? '<ol class="elog-tl">' + tl + '</ol>' : "") +
+          (e.takeaway ? '<div class="elog__take"><span class="elog__take-k">一句話</span>' + e.takeaway + '</div>' : "") +
+          (e.note ? '<p class="elog__note">↓ ' + e.note + '</p>' : "") +
+        '</article>';
+    });
   }
 
   function buildSeals(items) {
