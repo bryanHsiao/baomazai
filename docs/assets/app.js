@@ -513,8 +513,23 @@
     var note = r.intel && r.intel.note;
     var multi = tips.length > 1;
     var vkLabel = isHold ? "健檢" : "查證";
+    var cur = (r.quote && r.quote.price != null) ? Number(r.quote.price) : null;
     var entries = tips.map(function (t) {
       var imgs = (t.images || []).map(shotHtml).join("");
+      var pxHtml = "";
+      if (t.price != null && isFinite(t.price) && t.price > 0 && cur != null) {
+        var ret = (cur - t.price) / t.price * 100;
+        var dir = ret > 0.05 ? "up" : (ret < -0.05 ? "down" : "flat");
+        var retStr = (ret >= 0 ? "+" : "") + ret.toFixed(1) + "%";
+        var dys = r.quote.asOf ? daysBetween(t.date, r.quote.asOf) : 0;
+        pxHtml = '<div class="tip-entry__px">' +
+          '<span class="tip-entry__pxk mono">報馬當下</span>' +
+          '<span class="tip-entry__pxv mono">' + t.price + '</span>' +
+          '<span class="tip-entry__pxar mono">→ 現在 ' + cur + '</span>' +
+          '<span class="tip-entry__pxret ' + dir + ' mono">' + (dys > 0 ? retStr : "追蹤起點") + '</span>' +
+          (dys > 0 ? '<span class="tip-entry__pxd mono">' + dys + ' 天</span>' : "") +
+        '</div>';
+      }
       return '<div class="tip-entry">' +
         '<div class="tip-entry__bar">' +
           '<span class="intel__tag">' + (isHold ? "持股" : "報馬") + '</span>' +
@@ -522,6 +537,7 @@
           (t.date ? '<span class="intel__date mono">' + t.date + '</span>' : "") +
         '</div>' +
         (t.headline ? '<p class="tip-entry__quote">「' + t.headline + '」</p>' : "") +
+        pxHtml +
         (t.summary ? '<p class="tip-entry__summary">' + t.summary + '</p>' : "") +
         (imgs ? '<div class="intel__shots">' + imgs + '</div>' : "") +
         (t.verify ? '<p class="tip-entry__verify"><span class="tip-entry__vk mono">' + vkLabel + '</span>' + t.verify + '</p>' : "") +

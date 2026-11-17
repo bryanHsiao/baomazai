@@ -554,6 +554,19 @@ a.flrow:hover { background: var(--plate-soft, rgba(0,0,0,.025)); padding-left: 1
 .tip-entry__bar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-bottom: 10px; }
 .tip-entry__quote { font-family: var(--serif); font-weight: 700; font-size: 18px; line-height: 1.4; color: var(--ink); margin: 0 0 8px; }
 .tip-entry__summary { margin: 0 0 8px; font-size: 13.5px; line-height: 1.6; color: var(--ink-soft); }
+.tip-entry__px {
+  display: inline-flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px;
+  margin: 0 0 8px; padding: 7px 12px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 3px; font-size: 13px;
+}
+.tip-entry__pxk { font-size: 10px; font-weight: 700; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+.tip-entry__pxv { font-size: 16px; font-weight: 700; color: var(--ink); }
+.tip-entry__pxar { color: var(--muted); }
+.tip-entry__pxret { font-weight: 700; }
+.tip-entry__pxret.up { color: var(--rise); }
+.tip-entry__pxret.down { color: var(--fall); }
+.tip-entry__pxret.flat { color: var(--muted); }
+.tip-entry__pxd { font-size: 11px; color: var(--muted); }
 .tip-entry .intel__shots { padding: 0; margin: 4px 0 0; }
 .tip-entry__verify {
   margin: 12px 0 0; padding: 10px 13px; background: var(--surface);
